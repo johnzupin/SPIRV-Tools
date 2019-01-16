@@ -1,8 +1,8 @@
-spirv-tools (2018.6+15-1) UNRELEASED; urgency=medium
+spirv-tools (2018.6+15-1lunarg16.04.1.1) xenial; urgency=medium
 
   * new upstream version
 
- -- Jeremy Hayes <jeremy@centaurus>  Thu, 15 Nov 2018 17:00:58 -0700
+ -- Jeremy Hayes <jeremy@centaurus>  Thu, 15 Nov 2018 17:04:27 -0700
 
 spirv-tools (2018.5+41-1) unstable; urgency=medium
 
