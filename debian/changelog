@@ -1,3 +1,9 @@
+spirv-tools (2019.2+47-1lunarg16.04.1.1) xenial; urgency=medium
+
+  * new 1.1.106.0 sdk
+
+ -- John Zupin <john@odin>  Wed, 10 Apr 2019 17:42:00 -0600
+
 spirv-tools (2019.1+82-1lunarg16.04.1.1) xenial; urgency=medium
 
   * new upstream version
