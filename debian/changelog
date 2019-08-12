@@ -1,4 +1,10 @@
-spirv-tools (2019.3+37-1) UNRELEASED; urgency=medium
+spirv-tools (2019.3+89-1lunarg16.04.1.1) xenial; urgency=medium
+
+  * New 1.1.114.0 SDK
+
+ -- John Zupin <john@odin>  Mon, 22 Jul 2019 18:49:22 -0600
+
+spirv-tools (2019.3+37-1) unstable; urgency=medium
 
   * New 1.1.108.0~rc1 SDK
 
