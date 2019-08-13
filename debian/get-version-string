@@ -9,6 +9,6 @@ UPSTREAM_COMMIT=$1
 # LATEST_TAG_INFO[2]: Tag's commit (currently not used)
 LATEST_TAG_INFO=( $(git describe --tags --match 'v[0-9][0-9][0-9][0-9].[0-9]' $UPSTREAM_COMMIT | tr "-" " ") )
 
-TAG=${LATEST_TAG_INFO[0]}
+TAG=${LATEST_TAG_INFO[0]#v} #Strip the 'v' from the front
 NUM_COMMITS=${LATEST_TAG_INFO[1]}
 echo "$TAG+$NUM_COMMITS-1"
