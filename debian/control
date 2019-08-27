@@ -1,7 +1,7 @@
 Source: spirv-tools
 Section: libdevel
 Priority: optional
-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Maintainer: John Zupin <johnz@lunarg.com>
 Build-Depends: debhelper (>=9),
  cmake,
  python3-dev,
