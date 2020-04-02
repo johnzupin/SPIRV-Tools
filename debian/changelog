@@ -1,3 +1,9 @@
+spirv-tools (2020.2-1ubuntu16.04.1.1) xenial; urgency=medium
+
+  * Automated package build
+
+ -- John Zupin <john@odin>  Wed, 01 Apr 2020 15:24:21 -0600
+
 spirv-tools (2019.5+24-1ubuntu16.04.1.1) xenial; urgency=medium
 
   * Automated package build
