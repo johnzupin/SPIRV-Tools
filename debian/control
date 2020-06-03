@@ -19,7 +19,7 @@ Description: API and commands for processing SPIR-V modules
  The project includes an assembler, binary module parser, disassembler,
  validator, and optimizer for SPIR-V. Except for the optimizer, all are
  based on a common static library. The library contains all of the
- implementation details, and is used in the standalone tools whilst
+ implementation details, and is used in the standalone tools while
  also enabling integration into other code bases directly. The
  optimizer implementation resides in its own library, which depends on
  the core library.
