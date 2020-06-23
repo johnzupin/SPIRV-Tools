@@ -1,0 +1,25 @@
+Source: spirv-tools
+Section: graphics
+Priority: optional
+Maintainer: John Zupin <johnz@lunarg.com>
+Build-Depends: debhelper (>= 10),
+ cmake,
+ python3,
+ spirv-headers
+Standards-Version: 4.1.2
+Homepage: https://github.com/KhronosGroup/SPIRV-Tools
+Vcs-Git: https://github.com/KhronosGroup/SPIRV-Tools
+Vcs-Browser: https://github.com/KhronosGroup/SPIRV-Tools
+
+Package: spirv-tools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: The SPIR-V Tools project provides an API and commands for
+ processing SPIR-V modules.
+ .
+ The project includes an assembler, binary module parser, disassembler,
+ validator, and optimizer for SPIR-V. Except for the optimizer, all are
+ based on a common static library. The library contains all of the implementation
+ details, and is used in the standalone tools whilst also enabling integration
+ into other code bases directly. The optimizer implementation resides in its
+ own library, which depends on the core library.
