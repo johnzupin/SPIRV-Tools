@@ -1,3 +1,235 @@
+spirv-tools (2020.4-1lunarg20.04-1) focal; urgency=medium
+
+  [ Steven Perron ]
+  * Start SPIRV-Tools v2020.4
+
+  [ Ryan Harrison ]
+  * Rolling 4 dependencies (#3380)
+
+  [ André Perez ]
+  * spirv-fuzz: Add push id through variable transformation (#3359)
+
+  [ Jaebaek Seo ]
+  * Add tests for merge-return debug info preservation (#3389)
+
+  [ Paul Thomson ]
+  * Fix googletest inclusion (#3398)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix regression (#3396)
+
+  [ André Perez ]
+  * Fix instruction function use (#3390)
+  * Add value instruction condition (#3385)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix replayer bug (#3401)
+  * spirv-fuzz: Add support for OpSpecConstant* (#3373)
+  * spirv-fuzz: Add a test (#3238)
+
+  [ David Neto ]
+  * Fix round trip tests that weren't instantiated (#3417)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in ccp pass (#3420)
+
+  [ Vasyl Teliman ]
+  * Fix operand access (#3427)
+
+  [ dan sinclair ]
+  * Update access control lists. (#3433)
+
+  [ André Perez ]
+  * spirv-fuzz: Add replace linear algebra instruction transformation (#3402)
+  * spirv-fuzz: Implement vector shuffle fuzzer pass (#3412)
+
+  [ Ehsan ]
+  * Eliminate branches with condition of OpConstantNull (#3438)
+
+  [ Vasyl Teliman ]
+  * Fix return type (#3435)
+  * Add RemoveParameter method (#3437)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in dead branch elimination (#3425)
+
+  [ Steven Perron ]
+  * Use structured order to unroll loops. (#3443)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Swap operands in OpBranchConditional (#3423)
+  * spirv-fuzz: Refactor variable creation (#3414)
+
+  [ Ehsan ]
+  * Updated desc_sroa to support flattening structures (#3448)
+
+  [ Jaebaek Seo ]
+  * [spirv-opt] debug info preservation in ssa-rewrite (#3356)
+
+  [ Ryan Harrison ]
+  * Add support for different default/trunks in roll-deps (#3442)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Permute OpPhi instruction operands (#3421)
+  * spirv-fuzz: Add GetParameters (#3454)
+  * spirv-fuzz: Implement FuzzerPassAddParameters (#3399)
+
+  [ Ehsan ]
+  * Support OpCompositeExtract pattern in desc_sroa (#3456)
+
+  [ alan-baker ]
+  * Validate location assignments (#3308)
+
+  [ Jaebaek Seo ]
+  * Clear debug information for kill and replacement (#3459)
+
+  [ André Perez ]
+  * Implement the OpMatrixTimesScalar linear algebra case (#3450)
+
+  [ Ehsan ]
+  * Add gl_BaseInstance to the name mapper. (#3462)
+
+  [ Jaebaek Seo ]
+  * Fix ADCE pass bug for mulitple entries (#3470)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add one parameter at a time (#3469)
+  * spirv-fuzz: Add FuzzerPassAddCopyMemoryInstructions (#3391)
+  * spirv-fuzz: Add fuzzerutil::FindOrCreate* (#3479)
+  * Fix regression (#3481)
+  * spirv-fuzz: TransformationInvertComparisonOperator (#3475)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in copy-prop-array pass (#3444)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: fuzzerutil::MaybeGetConstant* #3487
+
+  [ André Perez ]
+  * spirv-fuzz: Implement the OpVectorTimesMatrix linear algebra case (#3489)
+  * spirv-fuzz: Add variables with workgroup storage class (#3485)
+  * spirv-fuzz: Add image sample unused components transformation (#3439)
+
+  [ Jaebaek Seo ]
+  * Preserve OpenCL.100.DebugInfo in reduce-load-size pass (#3492)
+
+  [ André Perez ]
+  * Implement the OpMatrixTimesVector linear algebra case (#3500)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationReplaceParameterWithGlobal (#3434)
+
+  [ greg-lunarg ]
+  * Upgrade elim-local-single-block for OpenCL.DebugInfo.100 (#3451)
+
+  [ Jaebaek Seo ]
+  * Fix build failure (#3508)
+
+  [ Stefano Milizia ]
+  * Implement transformation to record synonymous constants. (#3494)
+
+  [ Jaebaek Seo ]
+  * Preserve debug info in vector DCE pass (#3497)
+
+  [ greg-lunarg ]
+  * Preserve OpenCL.DebugInfo.100 through elim-local-single-store (#3498)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Minor refactoring (#3507)
+  * spirv-fuzz: Remove unused functions (#3510)
+  * spirv-fuzz: TransformationAddSynonyms (#3447)
+
+  [ André Perez ]
+  * Support OpPhi when replacing boolean constant operand (#3518)
+  * spirv-fuzz: Support adding dead break from back-edge block (#3519)
+
+  [ greg-lunarg ]
+  * Add support to GPU-AV instrumentation for Task and Mesh shaders (#3512)
+
+  [ André Perez ]
+  * spirv-fuzz: Implement the OpMatrixTimesMatrix linear algebra case (#3527)
+  * spirv-fuzz: Fix instruction insertion issue (#3521)
+
+  [ Jaebaek Seo ]
+  * Rewrite KillDebugDeclares() (#3513)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Add replay range option (#3535)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Fuzzer pass to interchange zero-like constants (#3524)
+
+  [ Vasyl Teliman ]
+  * spirv-opt: Add support for OpLabel to dominator analysis (#3516)
+  * spirv-fuzz: Remove TransformationCopyObject (#3531)
+
+  [ alan-baker ]
+  * Fix reachability in the validator (#3541)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add support for OpConvert to TransformationEquationInstruction (#3472)
+  * spirv-fuzz: Add support for OpBitcast to TransformationEquationInstruction (#3523)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Assert false in IsApplicable method of TransformationAccessChain (#3528)
+  * spirv-fuzz: Implement MaybeApplyTransformation helper function (#3540)
+  * Change MaybeApplyTransformation to return a boolean (#3555)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: support floating-point in TransformationInvertComparisonOperator (#3551)
+
+  [ David Neto ]
+  * Permit Simple and GLSL450 memory model in WEBGPU_0 (#3463)
+
+  [ alan-baker ]
+  * Store location values sparsely (#3488)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: add TransformationAddRelaxedDecoration (#3545)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: refactor to use RemoveAtRandomIndex (#3560)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add IdIsIrrelevant fact (#3561)
+  * spirv-fuzz: Add is_irrelevant parameter (#3563)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Extend TransformationRecordSynonymousConstants to allow composite constants (#3537)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Use irrelevant constants (#3565)
+
+  [ vkushwaha-nv ]
+  * Add changes for SPV_EXT_shader_atomic_float (#3562)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationReplaceParamsWithStruct (#3455)
+
+  [ greg-lunarg ]
+  * Preserve OpenCL.DebugInfo.100 through elim-dead-code-aggressive (#3542)
+
+  [ Steven Perron ]
+  * Sink pointer instructions in merge return (#3569)
+
+  [ alan-baker ]
+  * Support SPV_KHR_terminate_invocation (#3568)
+
+  [ Steven Perron ]
+  * Update CHANGES
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix usages of irrelevant constants (#3566)
+
+  [ Steven Perron ]
+  * Finalize SPIRV-Tools v2020.4
+
+  [ John Zupin ]
+  * copyright: update for release
+  * copyright: updated for lunarg debian files
+
+ -- John Zupin <john@odin>  Mon, 27 Jul 2020 14:19:47 -0600
+
 spirv-tools (2020.3-1) bionic; urgency=medium
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
