@@ -1,3 +1,341 @@
+spirv-tools (2020.4-131-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Steven Perron ]
+  * Start SPIRV-Tools v2020.5
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: adds TransformationReplaceCopyObjectWithStoreLoad (#3567)
+  * spirv-fuzz: adds TransformationReplaceCopyMemoryWithLoadStore (#3575)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Test usages of IdIsIrrelevant fact (#3578)
+  * spirv-fuzz: Create a helper in fuzzerutil to reuse function type (#3572)
+
+  [ Ryan Harrison ]
+  * Change DEPS rolling script to point at external/ (#3584)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Don't use default parameters (#3583)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Set message consumer in replayer when shrinking (#3591)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Split blocks starting with OpPhi before trying to outline (#3581)
+  * spirv-fuzz: Generalise transformation access chain (#3546)
+  * spirv-fuzz: Relax type checking for int contants (#3573)
+
+  [ Jaebaek Seo ]
+  * Preserve OpenCL.DebugInfo.100 through private-to-local pass (#3571)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: adds TransformationReplaceLoadStoreWithCopyMemory (#3586)
+
+  [ Steven Perron ]
+  * build(deps): bump lodash from 4.17.15 to 4.17.19 in /tools/sva (#3596)
+
+  [ Pierre Moreau ]
+  * Update OpenCL capabilities validation (#3149)
+
+  [ Jaebaek Seo ]
+  * Preserve debug info in scalar replacement pass (#3461)
+
+  [ David Neto ]
+  * Avoid operand type range checks (#3379)
+
+  [ Ben Clayton ]
+  * CMake: Enable building with BUILD_SHARED_LIBS=1 (#3490)
+
+  [ rdb ]
+  * Fix SyntaxWarning in Python 3.8 (#3388)
+
+  [ André Perez ]
+  * spirv-fuzz: Implement the OpTranspose linear algebra case (#3589)
+
+  [ Ryan Harrison ]
+  * Rolling 4 dependencies (#3601)
+
+  [ André Perez ]
+  * spirv-fuzz: Add condition to make functions livesafe (#3587)
+
+  [ Alastair Donaldson ]
+  * Avoid use of 'sanity' and 'sanity check' in the code base (#3585)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Remove non-deterministic behaviour (#3608)
+  * spirv-fuzz: Relax type constraints in DataSynonym facts (#3602)
+
+  [ dan sinclair ]
+  * Update some language usage. (#3611)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Compute corollary facts from OpBitcast (#3538)
+
+  [ André Perez ]
+  * spirv-fuzz: Implement the OpOuterProduct linear algebra case (#3617)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix memory bugs (#3622)
+
+  [ alan-baker ]
+  * Validator support for non-semantic clspv reflection (#3618)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in loop-unroll pass (#3548)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Pass to replace int operands with ints of opposite signedness (#3612)
+  * spirv-fuzz: Transformation to add loop preheader (#3599)
+
+  [ John Zupin ]
+  * debian: remove README.Debian
+
+  [ Vasyl Teliman ]
+  * Fix typo in ASAN CI build (#3623)
+
+  [ Jaebaek Seo ]
+  * Remove DebugDeclare only for target variables in ssa-rewrite (#3511)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationMoveInstructionDown (#3477)
+  * spirv-fuzz: Refactor boilerplate in TransformationAddParameter (#3625)
+  * spirv-fuzz: Handle capabilities during module donation (#3651)
+  * spirv-fuzz: Remove OpFunctionCall operands in correct order (#3630)
+  * spirv-fuzz: Fix FuzzerPassCopyObjects (#3638)
+  * spirv-fuzz: Handle OpPhi during constant obfuscation (#3640)
+  * spirv-fuzz: Handle OpPhis in livesafe functions (#3642)
+
+  [ André Perez ]
+  * spirv-opt: Improve the code of the Instruction class (#3610)
+
+  [ Jaebaek Seo ]
+  * OpenCL.DebugInfo.100 DebugTypeArray with variable size (#3549)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: make outliner pass use additional transformations (#3604)
+
+  [ André Perez ]
+  * spirv-fuzz: iterate over blocks in replace linear algebra pass (#3654)
+  * spirv-fuzz: Add TransformationMakeVectorOperationDynamic (#3597)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: TransformationReplaceAddSubMulWithCarryingExtended (#3598)
+
+  [ Steven Perron ]
+  * Avoid using /MP4 for clang on windows. (#3662)
+
+  [ Ryan Harrison ]
+  * Roll 2 dependencies (#3677)
+
+  [ Steven Perron ]
+  * Handle no index access chain in local access chain convert (#3678)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: FuzzerPassPropagateInstructionsUp (#3478)
+
+  [ André Perez ]
+  * spirv-opt: Add spvOpcodeIsAccessChain (#3682)
+  * spirv-fuzz: Fix in operand type assertion (#3666)
+
+  [ alan-baker ]
+  * Only validation locations for appropriate execution models (#3656)
+
+  [ Jaebaek Seo ]
+  * Validate more OpenCL.DebugInfo.100 instructions (#3684)
+  * Preserve debug info in dead-insert-elim pass (#3652)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix width in FuzzerPassAddEquationInstructions (#3685)
+  * Fix the bug (#3683)
+
+  [ André Perez ]
+  * spirv-fuzz: Ignore specialization constants (#3664)
+  * spirv-fuzz: consider additional access chain instructions (#3672)
+  * spirv-fuzz: Check integer and float width capabilities (#3670)
+
+  [ Vasyl Teliman ]
+  * Fix the bug (#3680)
+
+  [ alan-baker ]
+  * Improve non-semantic instruction handling in the optimizer (#3693)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Support identical predecessors in TransformationPropagateInstructionUp (#3689)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Fuzzer pass to randomly apply loop preheaders (#3668)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Improve code coverage of tests (#3686)
+
+  [ Jaebaek Seo ]
+  * Allow DebugTypeTemplate for Type operand (#3702)
+
+  [ André Perez ]
+  * spirv-fuzz: Check header dominance when adding dead block (#3694)
+
+  [ Jack Andersen ]
+  * Fix -Wrange-loop-analysis warning (#3712)
+
+  [ André Perez ]
+  * spirv-fuzz: Check termination instructions when donating modules (#3710)
+  * spirv-opt: Implement opt::Function::HasEarlyReturn function (#3711)
+
+  [ Jaebaek Seo ]
+  * Let ADCE pass check DebugScope (#3703)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Support pointer types in FuzzerPassAddParameters (#3627)
+  * spirv-fuzz: add FuzzerPassAddCompositeInserts (#3606)
+
+  [ Diego Novillo ]
+  * CCP should mark IR changed if it created new constants. (#3732)
+
+  [ André Perez ]
+  * spirv-fuzz: Add words instead of logical operands (#3728)
+
+  [ Steven Perron ]
+  * Add undef for inlined void function (#3720)
+
+  [ greg-lunarg ]
+  * Fix SSA-rewrite to remove DebugDeclare for variables without loads (#3719)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix MaybeGetZeroConstant (#3740)
+
+  [ André Perez ]
+  * spirv-fuzz: Add inline function transformation (#3517)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Split the fact manager into multiple files (#3699)
+
+  [ greg-lunarg ]
+  * Fix DebugNoScope to not output InlinedAt operand. (#3748)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Overflow ids (#3734)
+
+  [ Jaebaek Seo ]
+  * Handle DebugScope in compact-ids pass (#3724)
+
+  [ greg-lunarg ]
+  * Do not register DebugFunction for functions optimized away. (#3749)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Do not make synonyms of void result ids (#3747)
+
+  [ Stefano Milizia ]
+  * Add LoopNestingDepth function to StructuredCFGAnalysis (#3754)
+  * spirv-fuzz: Create synonym via OpPhi and existing synonyms (#3701)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Remove opaque pointer design pattern (#3755)
+
+  [ Jaebaek Seo ]
+  * Correctly replace debug lexical scope of instruction (#3718)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Compute interprocedural loop nesting depth of blocks (#3753)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationMutatePointer (#3737)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Transformation to replace the use of an irrelevant id (#3697)
+  * spirv-fuzz: Replace id in OpPhi coming from a dead predecessor (#3744)
+  * spirv-fuzz: Fix GetIdEquivalenceClasses (#3767)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add support for BuiltIn decoration (#3736)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan VUID labels to BuiltIn (#3756)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Transformation to convert OpSelect to conditional branch (#3681)
+  * spirv-opt: Add function to compute nesting depth of a block (#3771)
+
+  [ Steven Perron ]
+  * Allow SPV_KHR_8bit_storage extension. (#3780)
+
+  [ Paul Thomson ]
+  * Improve spirv-fuzz CMake code (#3781)
+  * Add missing include (#3788)
+  * spirv-fuzz: Add SPIRV_FUZZ_PROTOC_COMMAND (#3789)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Fix header guards in transformations/fuzzer passes (#3784)
+
+  [ Alastair Donaldson ]
+  * Favour 'integrity' over 'coherence' as a replacement for 'sanity'. (#3619)
+  * spirv-reduce: Refactoring (#3793)
+  * spirv-reduce: Support reducing a specific function (#3774)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Add TransformationDuplicateRegionWithSelection (#3773)
+
+  [ Alastair Donaldson ]
+  * Add missing file to BUILD.gn (#3798)
+
+  [ Diego Novillo ]
+  * Properly mark IR changed if instruction folder creates more than one constant. (#3799)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add BaseInstance, BaseVertex, DrawIndex, and ViewIndex (#3782)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Transformation to flatten conditional branch (#3667)
+  * spirv-fuzz: Pass submanagers to other submanagers when necessary (#3796)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Support memory instructions MoveInstructionDown (#3700)
+  * spirv-fuzz: Handle invalid ids in fact manager (#3742)
+
+  [ Alastair Donaldson ]
+  * Fix build errors (#3804)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Skip unreachable blocks (#3729)
+
+  [ André Perez ]
+  * spirv-fuzz: Add bit instruction synonym transformation (#3775)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Remove CanFindOrCreateZeroConstant (#3807)
+
+  [ greg-lunarg ]
+  * Add buffer oob check to bindless instrumentation (#3800)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Improvements to random number generation (#3809)
+
+  [ André Perez ]
+  * spirv-fuzz: Use an irrelevant id for the unused components (#3810)
+
+  [ Ryan Harrison ]
+  * Fix missed modification flagging (#3814)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add DeviceIndex (#3812)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Fix TransformationDuplicateRegionWithSelection (#3815)
+
+  [ Alastair Donaldson ]
+  * Fix header guard macros (#3811)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Consider all ids from dead blocks irrelevant (#3795)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Add pass recommendations (#3757)
+  * spirv-fuzz: Refactor fuzzer, replayer and shrinker (#3818)
+
+  [ Steven Perron ]
+  * Update CHANGES
+
+ -- John Zupin <john@odin>  Mon, 28 Sep 2020 16:49:27 -0600
+
 spirv-tools (2020.4-1lunarg18.04-1) bionic; urgency=medium
 
   [ Steven Perron ]
