@@ -51,6 +51,12 @@ void FuzzerPassAddOpPhiSynonyms::Apply() {
         continue;
       }
 
+      // The block must not be dead.
+      if (GetTransformationContext()->GetFactManager()->BlockIsDead(
+              block.id())) {
+        continue;
+      }
+
       // The block must have at least one predecessor.
       size_t num_preds = GetIRContext()->cfg()->preds(block.id()).size();
       if (num_preds == 0) {
@@ -157,7 +163,7 @@ FuzzerPassAddOpPhiSynonyms::GetIdEquivalenceClasses() {
 
     // Exclude irrelevant ids.
     if (GetTransformationContext()->GetFactManager()->IdIsIrrelevant(
-            pair.first, GetIRContext())) {
+            pair.first)) {
       continue;
     }
 
@@ -195,7 +201,7 @@ FuzzerPassAddOpPhiSynonyms::GetIdEquivalenceClasses() {
 
       // The synonym must not be irrelevant.
       if (GetTransformationContext()->GetFactManager()->IdIsIrrelevant(
-              synonym->object(), GetIRContext())) {
+              synonym->object())) {
         continue;
       }
 

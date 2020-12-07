@@ -51,34 +51,43 @@ bool DataSynonymAndIdEquationFacts::OperationEquals::operator()(
   return true;
 }
 
-void DataSynonymAndIdEquationFacts::AddFact(
+DataSynonymAndIdEquationFacts::DataSynonymAndIdEquationFacts(
+    opt::IRContext* ir_context)
+    : ir_context_(ir_context) {}
+
+bool DataSynonymAndIdEquationFacts::MaybeAddFact(
     const protobufs::FactDataSynonym& fact,
     const DeadBlockFacts& dead_block_facts,
-    const IrrelevantValueFacts& irrelevant_value_facts,
-    opt::IRContext* context) {
-  (void)dead_block_facts;        // Keep release compilers happy.
-  (void)irrelevant_value_facts;  // Keep release compilers happy.
-  assert(!irrelevant_value_facts.IdIsIrrelevant(fact.data1().object(),
-                                                dead_block_facts, context) &&
-         !irrelevant_value_facts.IdIsIrrelevant(fact.data2().object(),
-                                                dead_block_facts, context) &&
-         "Irrelevant ids cannot be synonymous with other ids.");
+    const IrrelevantValueFacts& irrelevant_value_facts) {
+  if (irrelevant_value_facts.IdIsIrrelevant(fact.data1().object(),
+                                            dead_block_facts) ||
+      irrelevant_value_facts.IdIsIrrelevant(fact.data2().object(),
+                                            dead_block_facts)) {
+    // Irrelevant ids cannot be synonymous with other ids.
+    return false;
+  }
 
   // Add the fact, including all facts relating sub-components of the data
   // descriptors that are involved.
-  AddDataSynonymFactRecursive(fact.data1(), fact.data2(), context);
+  AddDataSynonymFactRecursive(fact.data1(), fact.data2());
+  return true;
 }
 
-void DataSynonymAndIdEquationFacts::AddFact(
+bool DataSynonymAndIdEquationFacts::MaybeAddFact(
     const protobufs::FactIdEquation& fact,
     const DeadBlockFacts& dead_block_facts,
-    const IrrelevantValueFacts& irrelevant_value_facts,
-    opt::IRContext* context) {
-  (void)dead_block_facts;        // Keep release compilers happy.
-  (void)irrelevant_value_facts;  // Keep release compilers happy.
-  assert(!irrelevant_value_facts.IdIsIrrelevant(fact.lhs_id(), dead_block_facts,
-                                                context) &&
-         "Irrelevant ids are not allowed.");
+    const IrrelevantValueFacts& irrelevant_value_facts) {
+  if (irrelevant_value_facts.IdIsIrrelevant(fact.lhs_id(), dead_block_facts)) {
+    // Irrelevant ids cannot participate in IdEquation facts.
+    return false;
+  }
+
+  for (auto id : fact.rhs_id()) {
+    if (irrelevant_value_facts.IdIsIrrelevant(id, dead_block_facts)) {
+      // Irrelevant ids cannot participate in IdEquation facts.
+      return false;
+    }
+  }
 
   protobufs::DataDescriptor lhs_dd = MakeDataDescriptor(fact.lhs_id(), {});
 
@@ -89,18 +98,14 @@ void DataSynonymAndIdEquationFacts::AddFact(
   // equation.
   std::vector<const protobufs::DataDescriptor*> rhs_dds;
   for (auto rhs_id : fact.rhs_id()) {
-    assert(!irrelevant_value_facts.IdIsIrrelevant(rhs_id, dead_block_facts,
-                                                  context) &&
-           "Irrelevant ids are not allowed.");
-
     // Register a data descriptor based on this id in the equivalence relation
     // if needed, and then record the equivalence class representative.
     rhs_dds.push_back(RegisterDataDescriptor(MakeDataDescriptor(rhs_id, {})));
   }
 
   // Now add the fact.
-  AddEquationFactRecursive(lhs_dd, static_cast<SpvOp>(fact.opcode()), rhs_dds,
-                           context);
+  AddEquationFactRecursive(lhs_dd, static_cast<SpvOp>(fact.opcode()), rhs_dds);
+  return true;
 }
 
 DataSynonymAndIdEquationFacts::OperationSet
@@ -115,8 +120,7 @@ DataSynonymAndIdEquationFacts::GetEquations(
 
 void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
     const protobufs::DataDescriptor& lhs_dd, SpvOp opcode,
-    const std::vector<const protobufs::DataDescriptor*>& rhs_dds,
-    opt::IRContext* context) {
+    const std::vector<const protobufs::DataDescriptor*>& rhs_dds) {
   assert(synonymous_.Exists(lhs_dd) &&
          "The LHS must be known to the equivalence relation.");
   for (auto rhs_dd : rhs_dds) {
@@ -153,14 +157,13 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
   switch (opcode) {
     case SpvOpConvertSToF:
     case SpvOpConvertUToF:
-      ComputeConversionDataSynonymFacts(*rhs_dds[0], context);
+      ComputeConversionDataSynonymFacts(*rhs_dds[0]);
       break;
     case SpvOpBitcast: {
-      assert(DataDescriptorsAreWellFormedAndComparable(context, lhs_dd,
-                                                       *rhs_dds[0]) &&
+      assert(DataDescriptorsAreWellFormedAndComparable(lhs_dd, *rhs_dds[0]) &&
              "Operands of OpBitcast equation fact must have compatible types");
       if (!synonymous_.IsEquivalent(lhs_dd, *rhs_dds[0])) {
-        AddDataSynonymFactRecursive(lhs_dd, *rhs_dds[0], context);
+        AddDataSynonymFactRecursive(lhs_dd, *rhs_dds[0]);
       }
     } break;
     case SpvOpIAdd: {
@@ -171,13 +174,7 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
           if (synonymous_.IsEquivalent(*equation.operands[1], *rhs_dds[1])) {
             // Equation form: "a = (d - c) + c"
             // We can thus infer "a = d"
-            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0], context);
-          }
-          if (synonymous_.IsEquivalent(*equation.operands[0], *rhs_dds[1])) {
-            // Equation form: "a = (c - e) + c"
-            // We can thus infer "a = -e"
-            AddEquationFactRecursive(lhs_dd, SpvOpSNegate,
-                                     {equation.operands[1]}, context);
+            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0]);
           }
         }
       }
@@ -187,7 +184,7 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
           if (synonymous_.IsEquivalent(*equation.operands[1], *rhs_dds[0])) {
             // Equation form: "a = b + (d - b)"
             // We can thus infer "a = d"
-            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0], context);
+            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0]);
           }
         }
       }
@@ -201,12 +198,12 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
           if (synonymous_.IsEquivalent(*equation.operands[0], *rhs_dds[1])) {
             // Equation form: "a = (c + e) - c"
             // We can thus infer "a = e"
-            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[1], context);
+            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[1]);
           }
           if (synonymous_.IsEquivalent(*equation.operands[1], *rhs_dds[1])) {
             // Equation form: "a = (d + c) - c"
             // We can thus infer "a = d"
-            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0], context);
+            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0]);
           }
         }
 
@@ -216,7 +213,7 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
             // Equation form: "a = (c - e) - c"
             // We can thus infer "a = -e"
             AddEquationFactRecursive(lhs_dd, SpvOpSNegate,
-                                     {equation.operands[1]}, context);
+                                     {equation.operands[1]});
           }
         }
       }
@@ -228,13 +225,13 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
             // Equation form: "a = b - (b + e)"
             // We can thus infer "a = -e"
             AddEquationFactRecursive(lhs_dd, SpvOpSNegate,
-                                     {equation.operands[1]}, context);
+                                     {equation.operands[1]});
           }
           if (synonymous_.IsEquivalent(*equation.operands[1], *rhs_dds[0])) {
             // Equation form: "a = b - (d + b)"
             // We can thus infer "a = -d"
             AddEquationFactRecursive(lhs_dd, SpvOpSNegate,
-                                     {equation.operands[0]}, context);
+                                     {equation.operands[0]});
           }
         }
         if (equation.opcode == SpvOpISub) {
@@ -242,7 +239,7 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
           if (synonymous_.IsEquivalent(*equation.operands[0], *rhs_dds[0])) {
             // Equation form: "a = b - (b - e)"
             // We can thus infer "a = e"
-            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[1], context);
+            AddDataSynonymFactRecursive(lhs_dd, *equation.operands[1]);
           }
         }
       }
@@ -255,7 +252,7 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
         if (equation.opcode == opcode) {
           // Equation form: "a = !!b" or "a = -(-b)"
           // We can thus infer "a = b"
-          AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0], context);
+          AddDataSynonymFactRecursive(lhs_dd, *equation.operands[0]);
         }
       }
       break;
@@ -266,9 +263,11 @@ void DataSynonymAndIdEquationFacts::AddEquationFactRecursive(
 }
 
 void DataSynonymAndIdEquationFacts::AddDataSynonymFactRecursive(
-    const protobufs::DataDescriptor& dd1, const protobufs::DataDescriptor& dd2,
-    opt::IRContext* context) {
-  assert(DataDescriptorsAreWellFormedAndComparable(context, dd1, dd2));
+    const protobufs::DataDescriptor& dd1,
+    const protobufs::DataDescriptor& dd2) {
+  assert((!ObjectStillExists(dd1) || !ObjectStillExists(dd2) ||
+          DataDescriptorsAreWellFormedAndComparable(dd1, dd2)) &&
+         "Mismatched data descriptors.");
 
   // Record that the data descriptors provided in the fact are equivalent.
   MakeEquivalent(dd1, dd2);
@@ -279,19 +278,25 @@ void DataSynonymAndIdEquationFacts::AddDataSynonymFactRecursive(
 
   // |dd1| and |dd2| belong to the same equivalence class so it doesn't matter
   // which one we use here.
-  ComputeConversionDataSynonymFacts(dd1, context);
+  ComputeConversionDataSynonymFacts(dd1);
 
-  ComputeCompositeDataSynonymFacts(dd1, dd2, context);
+  ComputeCompositeDataSynonymFacts(dd1, dd2);
 }
 
 void DataSynonymAndIdEquationFacts::ComputeConversionDataSynonymFacts(
-    const protobufs::DataDescriptor& dd, opt::IRContext* context) {
+    const protobufs::DataDescriptor& dd) {
   assert(synonymous_.Exists(dd) &&
          "|dd| should've been registered in the equivalence relation");
 
+  if (!ObjectStillExists(dd)) {
+    // The object is gone from the module, so we cannot proceed.
+    return;
+  }
+
   const auto* type =
-      context->get_type_mgr()->GetType(fuzzerutil::WalkCompositeTypeIndices(
-          context, fuzzerutil::GetTypeId(context, dd.object()), dd.index()));
+      ir_context_->get_type_mgr()->GetType(fuzzerutil::WalkCompositeTypeIndices(
+          ir_context_, fuzzerutil::GetTypeId(ir_context_, dd.object()),
+          dd.index()));
   assert(type && "Data descriptor has invalid type");
 
   if ((type->AsVector() && type->AsVector()->element_type()->AsInteger()) ||
@@ -304,11 +309,11 @@ void DataSynonymAndIdEquationFacts::ComputeConversionDataSynonymFacts(
 
     for (const auto& fact : id_equations_) {
       auto equivalence_class = synonymous_.GetEquivalenceClass(*fact.first);
-      auto dd_it = std::find_if(
-          equivalence_class.begin(), equivalence_class.end(),
-          [context](const protobufs::DataDescriptor* a) {
-            return context->get_def_use_mgr()->GetDef(a->object()) != nullptr;
-          });
+      auto dd_it =
+          std::find_if(equivalence_class.begin(), equivalence_class.end(),
+                       [this](const protobufs::DataDescriptor* a) {
+                         return ObjectStillExists(*a);
+                       });
       if (dd_it == equivalence_class.end()) {
         // Skip |equivalence_class| if it has no valid ids.
         continue;
@@ -335,7 +340,7 @@ void DataSynonymAndIdEquationFacts::ComputeConversionDataSynonymFacts(
           if (!synonymous_.IsEquivalent(*synonym_a, *synonym_b)) {
             // |synonym_a| and |synonym_b| have compatible types - they are
             // synonymous.
-            AddDataSynonymFactRecursive(*synonym_a, *synonym_b, context);
+            AddDataSynonymFactRecursive(*synonym_a, *synonym_b);
           }
         }
       }
@@ -344,18 +349,19 @@ void DataSynonymAndIdEquationFacts::ComputeConversionDataSynonymFacts(
 }
 
 void DataSynonymAndIdEquationFacts::ComputeCompositeDataSynonymFacts(
-    const protobufs::DataDescriptor& dd1, const protobufs::DataDescriptor& dd2,
-    opt::IRContext* context) {
+    const protobufs::DataDescriptor& dd1,
+    const protobufs::DataDescriptor& dd2) {
   // Check whether this is a synonym about composite objects. If it is,
   // we can recursively add synonym facts about their associated sub-components.
 
   // Get the type of the object referred to by the first data descriptor in the
   // synonym fact.
   uint32_t type_id = fuzzerutil::WalkCompositeTypeIndices(
-      context, context->get_def_use_mgr()->GetDef(dd1.object())->type_id(),
+      ir_context_,
+      ir_context_->get_def_use_mgr()->GetDef(dd1.object())->type_id(),
       dd1.index());
-  auto type = context->get_type_mgr()->GetType(type_id);
-  auto type_instruction = context->get_def_use_mgr()->GetDef(type_id);
+  auto type = ir_context_->get_type_mgr()->GetType(type_id);
+  auto type_instruction = ir_context_->get_def_use_mgr()->GetDef(type_id);
   assert(type != nullptr &&
          "Invalid data synonym fact: one side has an unknown type.");
 
@@ -364,7 +370,7 @@ void DataSynonymAndIdEquationFacts::ComputeCompositeDataSynonymFacts(
   uint32_t num_composite_elements;
   if (type->AsArray()) {
     num_composite_elements =
-        fuzzerutil::GetArraySize(*type_instruction, context);
+        fuzzerutil::GetArraySize(*type_instruction, ir_context_);
   } else if (type->AsMatrix()) {
     num_composite_elements = type->AsMatrix()->element_count();
   } else if (type->AsStruct()) {
@@ -399,9 +405,8 @@ void DataSynonymAndIdEquationFacts::ComputeCompositeDataSynonymFacts(
         fuzzerutil::RepeatedFieldToVector(dd2.index());
     extended_indices2.push_back(i);
     AddDataSynonymFactRecursive(
-        MakeDataDescriptor(dd1.object(), std::move(extended_indices1)),
-        MakeDataDescriptor(dd2.object(), std::move(extended_indices2)),
-        context);
+        MakeDataDescriptor(dd1.object(), extended_indices1),
+        MakeDataDescriptor(dd2.object(), extended_indices2));
 
     if (i < kCompositeElementBound - 1 || i == num_composite_elements - 1) {
       // We have not reached the bound yet, or have already skipped ahead to the
@@ -416,7 +421,7 @@ void DataSynonymAndIdEquationFacts::ComputeCompositeDataSynonymFacts(
 }
 
 void DataSynonymAndIdEquationFacts::ComputeClosureOfFacts(
-    opt::IRContext* context, uint32_t maximum_equivalence_class_size) {
+    uint32_t maximum_equivalence_class_size) {
   // Suppose that obj_1[a_1, ..., a_m] and obj_2[b_1, ..., b_n] are distinct
   // data descriptors that describe objects of the same composite type, and that
   // the composite type is comprised of k components.
@@ -576,21 +581,26 @@ void DataSynonymAndIdEquationFacts::ComputeClosureOfFacts(
               synonymous_.IsEquivalent(dd1_prefix, dd2_prefix)) {
             continue;
           }
-
+          if (!ObjectStillExists(*dd1) || !ObjectStillExists(*dd2)) {
+            // The objects are not both available in the module, so we cannot
+            // investigate the types of the associated data descriptors; we need
+            // to move on.
+            continue;
+          }
           // Get the type of obj_1
           auto dd1_root_type_id =
-              context->get_def_use_mgr()->GetDef(dd1->object())->type_id();
+              fuzzerutil::GetTypeId(ir_context_, dd1->object());
           // Use this type, together with a_1, ..., a_m, to get the type of
           // obj_1[a_1, ..., a_m].
           auto dd1_prefix_type = fuzzerutil::WalkCompositeTypeIndices(
-              context, dd1_root_type_id, dd1_prefix.index());
+              ir_context_, dd1_root_type_id, dd1_prefix.index());
 
           // Similarly, get the type of obj_2 and use it to get the type of
           // obj_2[b_1, ..., b_n].
           auto dd2_root_type_id =
-              context->get_def_use_mgr()->GetDef(dd2->object())->type_id();
+              fuzzerutil::GetTypeId(ir_context_, dd2->object());
           auto dd2_prefix_type = fuzzerutil::WalkCompositeTypeIndices(
-              context, dd2_root_type_id, dd2_prefix.index());
+              ir_context_, dd2_root_type_id, dd2_prefix.index());
 
           // If the types of dd1_prefix and dd2_prefix are not the same, they
           // cannot be synonymous.
@@ -614,12 +624,12 @@ void DataSynonymAndIdEquationFacts::ComputeClosureOfFacts(
           // or vector.
           uint32_t num_components_in_composite;
           auto composite_type =
-              context->get_type_mgr()->GetType(dd1_prefix_type);
+              ir_context_->get_type_mgr()->GetType(dd1_prefix_type);
           auto composite_type_instruction =
-              context->get_def_use_mgr()->GetDef(dd1_prefix_type);
+              ir_context_->get_def_use_mgr()->GetDef(dd1_prefix_type);
           if (composite_type->AsArray()) {
-            num_components_in_composite =
-                fuzzerutil::GetArraySize(*composite_type_instruction, context);
+            num_components_in_composite = fuzzerutil::GetArraySize(
+                *composite_type_instruction, ir_context_);
             if (num_components_in_composite == 0) {
               // This indicates that the array has an unknown size, in which
               // case we cannot be sure we have matched all of its elements with
@@ -683,8 +693,8 @@ void DataSynonymAndIdEquationFacts::ComputeClosureOfFacts(
             // have deduced that |dd1_prefix| and |dd2_prefix| are synonymous
             // by observing that all their sub-components are already
             // synonymous.
-            assert(DataDescriptorsAreWellFormedAndComparable(
-                context, dd1_prefix, dd2_prefix));
+            assert(DataDescriptorsAreWellFormedAndComparable(dd1_prefix,
+                                                             dd2_prefix));
             MakeEquivalent(dd1_prefix, dd2_prefix);
             // Now that we know this pair of data descriptors are synonymous,
             // there is no point recording how close they are to being
@@ -778,24 +788,28 @@ DataSynonymAndIdEquationFacts::RegisterDataDescriptor(
 }
 
 bool DataSynonymAndIdEquationFacts::DataDescriptorsAreWellFormedAndComparable(
-    opt::IRContext* context, const protobufs::DataDescriptor& dd1,
-    const protobufs::DataDescriptor& dd2) {
-  assert(context->get_def_use_mgr()->GetDef(dd1.object()) &&
-         context->get_def_use_mgr()->GetDef(dd2.object()) &&
-         "Both descriptors must exist in the module");
+    const protobufs::DataDescriptor& dd1,
+    const protobufs::DataDescriptor& dd2) const {
+  if (!ObjectStillExists(dd1) || !ObjectStillExists(dd2)) {
+    // We trivially return true if one or other of the objects associated with
+    // the data descriptors is gone.
+    return true;
+  }
 
   auto end_type_id_1 = fuzzerutil::WalkCompositeTypeIndices(
-      context, fuzzerutil::GetTypeId(context, dd1.object()), dd1.index());
+      ir_context_, fuzzerutil::GetTypeId(ir_context_, dd1.object()),
+      dd1.index());
   auto end_type_id_2 = fuzzerutil::WalkCompositeTypeIndices(
-      context, fuzzerutil::GetTypeId(context, dd2.object()), dd2.index());
+      ir_context_, fuzzerutil::GetTypeId(ir_context_, dd2.object()),
+      dd2.index());
   // The end types of the data descriptors must exist.
   if (end_type_id_1 == 0 || end_type_id_2 == 0) {
     return false;
   }
   // Neither end type is allowed to be void.
-  if (context->get_def_use_mgr()->GetDef(end_type_id_1)->opcode() ==
+  if (ir_context_->get_def_use_mgr()->GetDef(end_type_id_1)->opcode() ==
           SpvOpTypeVoid ||
-      context->get_def_use_mgr()->GetDef(end_type_id_2)->opcode() ==
+      ir_context_->get_def_use_mgr()->GetDef(end_type_id_2)->opcode() ==
           SpvOpTypeVoid) {
     return false;
   }
@@ -807,8 +821,8 @@ bool DataSynonymAndIdEquationFacts::DataDescriptorsAreWellFormedAndComparable(
   // vectors that differ only in signedness.
 
   // Get both types.
-  const auto* type_a = context->get_type_mgr()->GetType(end_type_id_1);
-  const auto* type_b = context->get_type_mgr()->GetType(end_type_id_2);
+  const auto* type_a = ir_context_->get_type_mgr()->GetType(end_type_id_1);
+  const auto* type_b = ir_context_->get_type_mgr()->GetType(end_type_id_2);
   assert(type_a && type_b && "Data descriptors have invalid type(s)");
 
   // If both types are numerical or vectors of numerical components, then they
@@ -860,18 +874,41 @@ DataSynonymAndIdEquationFacts::GetSynonymsForId(uint32_t id) const {
 std::vector<const protobufs::DataDescriptor*>
 DataSynonymAndIdEquationFacts::GetSynonymsForDataDescriptor(
     const protobufs::DataDescriptor& data_descriptor) const {
+  std::vector<const protobufs::DataDescriptor*> result;
   if (synonymous_.Exists(data_descriptor)) {
-    return synonymous_.GetEquivalenceClass(data_descriptor);
+    for (auto dd : synonymous_.GetEquivalenceClass(data_descriptor)) {
+      // There may be data descriptors in the equivalence class whose base
+      // objects have been removed from the module.  We do not expose these
+      // data descriptors to clients of the fact manager.
+      if (ObjectStillExists(*dd)) {
+        result.push_back(dd);
+      }
+    }
   }
-  return {};
+  return result;
 }
 
 std::vector<uint32_t>
 DataSynonymAndIdEquationFacts::GetIdsForWhichSynonymsAreKnown() const {
   std::vector<uint32_t> result;
   for (auto& data_descriptor : synonymous_.GetAllKnownValues()) {
-    if (data_descriptor->index().empty()) {
+    // We skip any data descriptors whose base objects no longer exist in the
+    // module, and we restrict attention to data descriptors for plain ids,
+    // which have no indices.
+    if (ObjectStillExists(*data_descriptor) &&
+        data_descriptor->index().empty()) {
       result.push_back(data_descriptor->object());
+    }
+  }
+  return result;
+}
+
+std::vector<const protobufs::DataDescriptor*>
+DataSynonymAndIdEquationFacts::GetAllKnownSynonyms() const {
+  std::vector<const protobufs::DataDescriptor*> result;
+  for (const auto* dd : synonymous_.GetAllKnownValues()) {
+    if (ObjectStillExists(*dd)) {
+      result.push_back(dd);
     }
   }
   return result;
@@ -883,6 +920,11 @@ bool DataSynonymAndIdEquationFacts::IsSynonymous(
   return synonymous_.Exists(data_descriptor1) &&
          synonymous_.Exists(data_descriptor2) &&
          synonymous_.IsEquivalent(data_descriptor1, data_descriptor2);
+}
+
+bool DataSynonymAndIdEquationFacts::ObjectStillExists(
+    const protobufs::DataDescriptor& dd) const {
+  return ir_context_->get_def_use_mgr()->GetDef(dd.object()) != nullptr;
 }
 
 }  // namespace fact_manager
