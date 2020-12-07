@@ -105,7 +105,7 @@ void TransformationAddGlobalVariable::Apply(
 
   if (message_.value_is_irrelevant()) {
     transformation_context->GetFactManager()->AddFactValueOfPointeeIsIrrelevant(
-        message_.fresh_id(), ir_context);
+        message_.fresh_id());
   }
 }
 
@@ -113,6 +113,11 @@ protobufs::Transformation TransformationAddGlobalVariable::ToMessage() const {
   protobufs::Transformation result;
   *result.mutable_add_global_variable() = message_;
   return result;
+}
+
+std::unordered_set<uint32_t> TransformationAddGlobalVariable::GetFreshIds()
+    const {
+  return {message_.fresh_id()};
 }
 
 }  // namespace fuzz

@@ -27,12 +27,14 @@
 #include "source/fuzz/transformation_add_dead_block.h"
 #include "source/fuzz/transformation_add_dead_break.h"
 #include "source/fuzz/transformation_add_dead_continue.h"
+#include "source/fuzz/transformation_add_early_terminator_wrapper.h"
 #include "source/fuzz/transformation_add_function.h"
 #include "source/fuzz/transformation_add_global_undef.h"
 #include "source/fuzz/transformation_add_global_variable.h"
 #include "source/fuzz/transformation_add_image_sample_unused_components.h"
 #include "source/fuzz/transformation_add_local_variable.h"
 #include "source/fuzz/transformation_add_loop_preheader.h"
+#include "source/fuzz/transformation_add_loop_to_create_int_constant_synonym.h"
 #include "source/fuzz/transformation_add_no_contraction_decoration.h"
 #include "source/fuzz/transformation_add_opphi_synonym.h"
 #include "source/fuzz/transformation_add_parameter.h"
@@ -55,6 +57,7 @@
 #include "source/fuzz/transformation_compute_data_synonym_fact_closure.h"
 #include "source/fuzz/transformation_duplicate_region_with_selection.h"
 #include "source/fuzz/transformation_equation_instruction.h"
+#include "source/fuzz/transformation_expand_vector_reduction.h"
 #include "source/fuzz/transformation_flatten_conditional_branch.h"
 #include "source/fuzz/transformation_function_call.h"
 #include "source/fuzz/transformation_inline_function.h"
@@ -62,17 +65,20 @@
 #include "source/fuzz/transformation_load.h"
 #include "source/fuzz/transformation_make_vector_operation_dynamic.h"
 #include "source/fuzz/transformation_merge_blocks.h"
+#include "source/fuzz/transformation_merge_function_returns.h"
 #include "source/fuzz/transformation_move_block_down.h"
 #include "source/fuzz/transformation_move_instruction_down.h"
 #include "source/fuzz/transformation_mutate_pointer.h"
 #include "source/fuzz/transformation_outline_function.h"
 #include "source/fuzz/transformation_permute_function_parameters.h"
 #include "source/fuzz/transformation_permute_phi_operands.h"
+#include "source/fuzz/transformation_propagate_instruction_down.h"
 #include "source/fuzz/transformation_propagate_instruction_up.h"
 #include "source/fuzz/transformation_push_id_through_variable.h"
 #include "source/fuzz/transformation_record_synonymous_constants.h"
 #include "source/fuzz/transformation_replace_add_sub_mul_with_carrying_extended.h"
 #include "source/fuzz/transformation_replace_boolean_constant_with_constant_binary.h"
+#include "source/fuzz/transformation_replace_branch_from_dead_block_with_exit.h"
 #include "source/fuzz/transformation_replace_constant_with_uniform.h"
 #include "source/fuzz/transformation_replace_copy_memory_with_load_store.h"
 #include "source/fuzz/transformation_replace_copy_object_with_store_load.h"
@@ -94,6 +100,8 @@
 #include "source/fuzz/transformation_swap_conditional_branch_operands.h"
 #include "source/fuzz/transformation_toggle_access_chain_instruction.h"
 #include "source/fuzz/transformation_vector_shuffle.h"
+#include "source/fuzz/transformation_wrap_early_terminator_in_function.h"
+#include "source/fuzz/transformation_wrap_region_in_selection.h"
 #include "source/util/make_unique.h"
 
 namespace spvtools {
@@ -131,6 +139,10 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
     case protobufs::Transformation::TransformationCase::kAddDeadContinue:
       return MakeUnique<TransformationAddDeadContinue>(
           message.add_dead_continue());
+    case protobufs::Transformation::TransformationCase::
+        kAddEarlyTerminatorWrapper:
+      return MakeUnique<TransformationAddEarlyTerminatorWrapper>(
+          message.add_early_terminator_wrapper());
     case protobufs::Transformation::TransformationCase::kAddFunction:
       return MakeUnique<TransformationAddFunction>(message.add_function());
     case protobufs::Transformation::TransformationCase::kAddGlobalUndef:
@@ -149,6 +161,10 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
     case protobufs::Transformation::TransformationCase::kAddLoopPreheader:
       return MakeUnique<TransformationAddLoopPreheader>(
           message.add_loop_preheader());
+    case protobufs::Transformation::TransformationCase::
+        kAddLoopToCreateIntConstantSynonym:
+      return MakeUnique<TransformationAddLoopToCreateIntConstantSynonym>(
+          message.add_loop_to_create_int_constant_synonym());
     case protobufs::Transformation::TransformationCase::
         kAddNoContractionDecoration:
       return MakeUnique<TransformationAddNoContractionDecoration>(
@@ -210,6 +226,9 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
     case protobufs::Transformation::TransformationCase::kEquationInstruction:
       return MakeUnique<TransformationEquationInstruction>(
           message.equation_instruction());
+    case protobufs::Transformation::TransformationCase::kExpandVectorReduction:
+      return MakeUnique<TransformationExpandVectorReduction>(
+          message.expand_vector_reduction());
     case protobufs::Transformation::TransformationCase::
         kFlattenConditionalBranch:
       return MakeUnique<TransformationFlattenConditionalBranch>(
@@ -231,6 +250,9 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
           message.make_vector_operation_dynamic());
     case protobufs::Transformation::TransformationCase::kMergeBlocks:
       return MakeUnique<TransformationMergeBlocks>(message.merge_blocks());
+    case protobufs::Transformation::TransformationCase::kMergeFunctionReturns:
+      return MakeUnique<TransformationMergeFunctionReturns>(
+          message.merge_function_returns());
     case protobufs::Transformation::TransformationCase::kMoveBlockDown:
       return MakeUnique<TransformationMoveBlockDown>(message.move_block_down());
     case protobufs::Transformation::TransformationCase::kMoveInstructionDown:
@@ -248,6 +270,10 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
     case protobufs::Transformation::TransformationCase::kPermutePhiOperands:
       return MakeUnique<TransformationPermutePhiOperands>(
           message.permute_phi_operands());
+    case protobufs::Transformation::TransformationCase::
+        kPropagateInstructionDown:
+      return MakeUnique<TransformationPropagateInstructionDown>(
+          message.propagate_instruction_down());
     case protobufs::Transformation::TransformationCase::kPropagateInstructionUp:
       return MakeUnique<TransformationPropagateInstructionUp>(
           message.propagate_instruction_up());
@@ -266,6 +292,10 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
         kReplaceBooleanConstantWithConstantBinary:
       return MakeUnique<TransformationReplaceBooleanConstantWithConstantBinary>(
           message.replace_boolean_constant_with_constant_binary());
+    case protobufs::Transformation::TransformationCase::
+        kReplaceBranchFromDeadBlockWithExit:
+      return MakeUnique<TransformationReplaceBranchFromDeadBlockWithExit>(
+          message.replace_branch_from_dead_block_with_exit());
     case protobufs::Transformation::TransformationCase::
         kReplaceConstantWithUniform:
       return MakeUnique<TransformationReplaceConstantWithUniform>(
@@ -337,6 +367,13 @@ std::unique_ptr<Transformation> Transformation::FromMessage(
           message.toggle_access_chain_instruction());
     case protobufs::Transformation::TransformationCase::kVectorShuffle:
       return MakeUnique<TransformationVectorShuffle>(message.vector_shuffle());
+    case protobufs::Transformation::TransformationCase::
+        kWrapEarlyTerminatorInFunction:
+      return MakeUnique<TransformationWrapEarlyTerminatorInFunction>(
+          message.wrap_early_terminator_in_function());
+    case protobufs::Transformation::TransformationCase::kWrapRegionInSelection:
+      return MakeUnique<TransformationWrapRegionInSelection>(
+          message.wrap_region_in_selection());
     case protobufs::Transformation::TRANSFORMATION_NOT_SET:
       assert(false && "An unset transformation was encountered.");
       return nullptr;

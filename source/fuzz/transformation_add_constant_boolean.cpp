@@ -53,7 +53,7 @@ void TransformationAddConstantBoolean::Apply(
 
   if (message_.is_irrelevant()) {
     transformation_context->GetFactManager()->AddFactIdIsIrrelevant(
-        message_.fresh_id(), ir_context);
+        message_.fresh_id());
   }
 }
 
@@ -61,6 +61,11 @@ protobufs::Transformation TransformationAddConstantBoolean::ToMessage() const {
   protobufs::Transformation result;
   *result.mutable_add_constant_boolean() = message_;
   return result;
+}
+
+std::unordered_set<uint32_t> TransformationAddConstantBoolean::GetFreshIds()
+    const {
+  return {message_.fresh_id()};
 }
 
 }  // namespace fuzz

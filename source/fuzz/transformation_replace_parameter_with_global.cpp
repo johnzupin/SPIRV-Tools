@@ -57,10 +57,7 @@ bool TransformationReplaceParameterWithGlobal::IsApplicable(
   // |parameter_id|.
 
   // Check that replaced parameter has valid type.
-  const auto* param_type =
-      ir_context->get_type_mgr()->GetType(param_inst->type_id());
-  assert(param_type && "Parameter has invalid type");
-  if (!IsParameterTypeSupported(*param_type)) {
+  if (!IsParameterTypeSupported(ir_context, param_inst->type_id())) {
     return false;
   }
 
@@ -184,9 +181,9 @@ void TransformationReplaceParameterWithGlobal::Apply(
   // Mark the pointee of the global variable storing the parameter's value as
   // irrelevant if replaced parameter is irrelevant.
   if (transformation_context->GetFactManager()->IdIsIrrelevant(
-          message_.parameter_id(), ir_context)) {
+          message_.parameter_id())) {
     transformation_context->GetFactManager()->AddFactValueOfPointeeIsIrrelevant(
-        message_.global_variable_fresh_id(), ir_context);
+        message_.global_variable_fresh_id());
   }
 }
 
@@ -198,10 +195,16 @@ protobufs::Transformation TransformationReplaceParameterWithGlobal::ToMessage()
 }
 
 bool TransformationReplaceParameterWithGlobal::IsParameterTypeSupported(
-    const opt::analysis::Type& type) {
+    opt::IRContext* ir_context, uint32_t param_type_id) {
   // TODO(https://github.com/KhronosGroup/SPIRV-Tools/issues/3403):
   //  Think about other type instructions we can add here.
-  return fuzzerutil::CanCreateConstant(type);
+  return fuzzerutil::CanCreateConstant(ir_context, param_type_id);
+}
+
+std::unordered_set<uint32_t>
+TransformationReplaceParameterWithGlobal::GetFreshIds() const {
+  return {message_.function_type_fresh_id(),
+          message_.global_variable_fresh_id()};
 }
 
 }  // namespace fuzz
