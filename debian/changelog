@@ -1,3 +1,285 @@
+spirv-tools (2020.6-1lunarg20.04-1) focal; urgency=medium
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Handle OpPhis in TransformationInlineFunction (#3833)
+
+  [ Richard S. Wright Jr ]
+  * Fix compiler error on macOS with XCode12 (#3836)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Create synonym of int constant using a loop (#3790)
+
+  [ Ryan Harrison ]
+  * Validate SPIRV Version number when parsing binary header (#3834)
+
+  [ Simran ]
+  * Add missing backticks around <result-id> (#3840)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Move IRContext parameter into constructor (#3837)
+  * spirv-fuzz: Support dead blocks in TransformationAddSynonym (#3832)
+
+  [ Ehsan Nasiri ]
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2020.5
+  * Start SPIRV-Tools v2020.6
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Use unique_ptr<FactManager> in TransformationContext (#3844)
+
+  [ Paul Thomson ]
+  * spirv-fuzz: fix test (#3845)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Return IR and transformation context after replay (#3846)
+
+  [ André Perez ]
+  * spirv-fuzz: Support OpNot bit instruction case (#3841)
+
+  [ Antoni Karpiński ]
+  * spirv-fuzz: Fix bug in TransformationDuplicateRegionWithSelection (#3819)
+
+  [ Maksim Ivanov ]
+  * Fix use-after-move in val/validate.cpp (#3848)
+
+  [ dan sinclair ]
+  * [spirv-dis] Add some context comments to disassembly. (#3847)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Report fresh ids in transformations (#3856)
+  * spirv-fuzz: Fix flatten conditional branch transformation (#3859)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix TransformationRecordSynonymousConstants (#3868)
+  * spirv-fuzz: Fix to FuzzerPassFlattenConditionalBranches (#3865)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Do not add constants for Block-decorated structs (#3862)
+  * spirv-fuzz: Enable some passes with high probability (#3860)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationWrapRegionInSelection (#3674)
+  * spirv-fuzz: Refactor conditions in the fact manager (#3867)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in if-conversion pass (#3861)
+  * Debug info preservation in redundancy-elimination pass (#3839)
+
+  [ Stefano Milizia ]
+  * spirv-fuzz: Merge the return instructions in a function (#3838)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Only recommend passes when a pass had an effect (#3863)
+  * spirv-fuzz: Integrate spirv-reduce with shrinker (#3849)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Refactor fact manager tests (#3879)
+
+  [ Jaebaek Seo ]
+  * Debug info preservation in convert-local-access-chains pass (#3835)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Use overflow ids when inlining functions (#3880)
+  * spirv-fuzz: Avoid using block-decorated structs in transformations (#3877)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix rvalue references (#3883)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Use overflow ids when duplicating regions (#3878)
+  * spirv-fuzz: Transformation to add wrappers for OpKill and similar (#3881)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: TransformationPropagateInstructionDown (#3692)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Replace dead-block terminators with OpKill etc. (#3882)
+
+  [ dan sinclair ]
+  * Update val to handle reversed instruction sections. (#3887)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Wrap OpKill and similar in function calls (#3884)
+  * spirv-fuzz: Do not replace irrelevant ids that are not in blocks (#3892)
+  * spirv-fuzz: Do not add synonyms involving irrelevant ids (#3890)
+  * spirv-fuzz: Do not expose synonym facts for non-existent ids (#3891)
+  * spirv-fuzz: Fix to duplicate region with selection (#3896)
+  * spirv-fuzz: Fix to transformation that adds a synonym via a loop (#3898)
+  * spirv-fuzz: Fixes related to irrelevant ids (#3901)
+  * spirv-fuzz: Do not allow creation of constants of block-decorated structs (#3903)
+  * spirv-fuzz: Avoid creating blocks without parents (#3908)
+  * spirv-fuzz: Fix handling of OpPhi in FlattenConditionalBranch (#3916)
+  * spirv-fuzz: Lower probability of adding bit instruction synonyms (#3917)
+  * Temporary fix to make GoogleTest compile. (#3922)
+
+  [ Jaebaek Seo ]
+  * Add DebugValue for function param regardless of scope (#3923)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Wrap early terminators before merging returns (#3925)
+  * spirv-fuzz: Fix to TransformationInlineFunction (#3913)
+  * spirv-fuzz: Take care of OpPhi instructions when inlining (#3939)
+  * spirv-fuzz: Do not allow sampled image load when flattening conditionals (#3930)
+  * spirv-fuzz: Handle dead blocks in TransformationEquationInstruction (#3933)
+  * spirv-fuzz: Fix to operand id type (#3937)
+  * spirv-fuzz: Do not allow Block-decorated structs when adding parameters (#3931)
+  * spirv-fuzz: Avoid void struct member when outlining functions (#3936)
+  * spirv-val: Fix validation of OpPhi instructions (#3919)
+
+  [ Tobski ]
+  * Support SPV_KHR_fragment_shading_rate (#3943)
+  * Add SPV_EXT_shader_image_int64 (#3852)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Use component-wise selectors when flattening conditional branches (#3921)
+  * spirv-fuzz: Skip OpFunction when replacing irrelevant ids (#3932)
+  * spirv-fuzz: Fix to TransformationDuplicateRegionWithSelection (#3941)
+  * spirv-fuzz: Avoid the type manager when looking for struct types (#3963)
+  * spirv-fuzz: Skip dead blocks in FuzzerPassAddOpPhiSynonyms (#3965)
+  * spirv-fuzz: Avoid irrelevant constants in synonym-creating loops (#3967)
+  * spirv-fuzz: Skip early terminator wrappers when merging returns (#3968)
+  * spirv-fuzz: Handle more types when extending OpPhi instructions (#3969)
+  * spirv-fuzz: Restrict fuzzer pass to reachable blocks (#3970)
+  * spirv-fuzz: Do not produce OpPhis of type OpTypeSampledImage (#3964)
+  * spirv-fuzz: Don't flatten conditional if condition is irrelevant (#3944)
+
+  [ jonahryandavis ]
+  * Update SPIRV-Headers revision in DEPS file (#3961)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Fix operand types (#3962)
+  * spirv-fuzz: Fix to id availability (#3971)
+  * spirv-fuzz: Tolerate absent ids in data synonym fact management (#3966)
+  * spirv-fuzz: Fix off-by-one in TransformationCompositeConstruct (#3979)
+  * spirv-fuzz: Pass OpUndef in function call if needed (#3978)
+  * spirv-fuzz: Skip OpTypeSampledImage when propagating up (#3976)
+  * spirv-fuzz: Do not add synonym-creating loops in dead blocks (#3975)
+  * spirv-fuzz: Get order right for OpSelect arguments (#3974)
+  * spirv-fuzz: Fix off-by-one error in replayer (#3982)
+  * spirv-fuzz: Fix mismatch with shrinker step limit (#3985)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add FuzzerPassAddCompositeExtract (#3904)
+  * spirv-fuzz: Don't replace irrelevant indices in OpAccessChain (#3988)
+
+  [ André Perez ]
+  * spirv-fuzz: Add expand vector reduction transformation (#3869)
+
+  [ greg-lunarg ]
+  * Fix bounds check instrumentation to handle 16-bit values (#3983)
+
+  [ Jaebaek Seo ]
+  * Add DebugValue for DebugDecl invisible to value assignment (#3973)
+
+  [ Diego Novillo ]
+  * Simplify logic to decide whether CCP modified the IR (#3997)
+
+  [ Sidney Just ]
+  * spirv-val: Allow the ViewportIndex and Layer built-ins on SPIR-V 1.5 (#3986)
+
+  [ David Neto ]
+  * Avoid copying a ref in a loop (#4000)
+
+  [ Ben Clayton ]
+  * CMake: Add SPIRV_TOOLS_BUILD_STATIC flag (#3910)
+
+  [ Jaebaek Seo ]
+  * Propagate OpLine to all applied instructions in spirv-opt (#3951)
+
+  [ Junda Liu ]
+  * spirv-opt: Add support to prevent functions from being inlined if they have DontInline flag (#3858)
+
+  [ Jaebaek Seo ]
+  * Temporarily add EmptyPass to prevent glslang from failing (#4004)
+
+  [ André Perez ]
+  * spirv-fuzz: Fix bug related to transformation applicability (#3990)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix bugs in TransformationFlattenConditionalBranch (#4006)
+  * spirv-fuzz: Fix invalid equation facts (#4009)
+  * spirv-fuzz: Fix assertion failure in FuzzerPassAddCompositeExtract (#3995)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Add support for reining in rogue fuzzer passes (#3987)
+  * spirv-fuzz: Fixes to pass management (#4011)
+
+  [ Diego Novillo ]
+  * Fix SSA re-writing in the presence of variable pointers. (#4010)
+
+  [ Jaebaek Seo ]
+  * Add DebugValue for invisible store in single_store_elim (#4002)
+
+  [ alan-baker ]
+  * Add dead function elimination to -O (#4015)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label Layer and ViewportIndex VUIDs (#4013)
+  * spirv-val: Fix SPV_KHR_fragment_shading_rate VUID label (#4014)
+
+  [ David Neto ]
+  * Use less stack space when validating Vulkan builtins (#4019)
+
+  [ Jaebaek Seo ]
+  * spirv-opt: properly preserve DebugValue indexes operand (#4022)
+
+  [ Alastair Donaldson ]
+  * spirv-opt: Set parent when adding basic block (#4021)
+
+  [ greg-lunarg ]
+  * Fix buffer oob instrumentation for matrix refs (#4025)
+
+  [ David Neto ]
+  * Update MeshShadingNV dependencies (and land Ray tracing updates) (#4028)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Do not flatten conditionals that create synonyms (#4030)
+  * spirv-fuzz: Fix facts arising from CompositeConstruct (#4034)
+
+  [ David Neto ]
+  * Remove prototype for unimplemented method (#4031)
+  * BuildModule: optionally avoid adding new OpLine instructions (#4033)
+
+  [ Alastair Donaldson ]
+  * Reject SPIR-V that applies void to OpUndef, OpCopyObject, OpPhi (#4036)
+
+  [ Daniel Koch ]
+  * Update spirv-header deps (#4040)
+
+  [ greg-lunarg ]
+  * Add texel buffer out-of-bounds checking instrumentation (#4038)
+
+  [ Daniel Koch ]
+  * Add validation support for the ray tracing built-in variables (#4041)
+
+  [ Steven Perron ]
+  * Handle 8-bit index in elim dead member (#4043)
+
+  [ greg-lunarg ]
+  * Change ref_analysis to RefAnalysis to follow coding standards. (#4045)
+
+  [ Diego Novillo ]
+  * Update CHANGES
+
+  [ Ehsan ]
+  * Do run DCE if SPV_KHR_ray_query is used. (#4047)
+
+  [ Diego Novillo ]
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2020.6
+  * Start SPIRV-Tools v2020.7
+
+  [ Ehsan ]
+  * Take new (raytracing) termination instructions into account. (#4050)
+
+  [ Diego Novillo ]
+  * Update CHANGES to include latest ray tacing fixes.
+
+  [ John Zupin ]
+  * packaging: update copyright
+
+ -- John Zupin <john@odin>  Tue, 08 Dec 2020 10:26:36 -0700
+
 spirv-tools (2020.4-131-1lunarg20.04-1) focal; urgency=medium
 
   [ Steven Perron ]
