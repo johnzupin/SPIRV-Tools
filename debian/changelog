@@ -1,3 +1,131 @@
+spirv-tools (2020.7+2~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Marijn Suijten ]
+  * opt: Run DCE when SPV_KHR_shader_clock is used (#4049)
+
+  [ alan-baker ]
+  * Allow forward pointer to be used in types generally (#4044)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add last Position VUID (#4052)
+  * spirv-val: Add last ViewportIndex and Layer VUID (#4053)
+  * spirv-val: Add last ClipDistance and CullDistance VUID (#4054)
+  * spirv-val: Add last TessLevelOuter and TessLevelInner VUID (#4055)
+
+  [ David Neto ]
+  * validate StorageImageMultisampled capability (#4062)
+
+  [ Ryan Harrison ]
+  * Force using Python 3 git-sync-deps (#4067)
+
+  [ David Neto ]
+  * validate OpTypeImage Sampled values for environemnts (#4064)
+  * validation: tighter validation of multisampled images (#4059)
+  * validation: validate return type of OpImageRead (#4072)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Fix OpPhi handling in DuplicateRegionWithSelection (#4065)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Subgroup VUIDs (#4074)
+  * spirv-val: Add first StandAlone VUID 04633 (#4077)
+  * spirv-val: Add Vulkan Group Operation VUID (#4086)
+  * spirv-val: Add Vulkan ImageTexelPointer format check (#4087)
+  * spirv-val: Add Vulkan ForwardPointer VUID (#4089)
+  * spirv-val: Fix Vulkan image sampled check (#4085)
+  * spirv-val: Add Vulkan FP Mode VUID (#4088)
+
+  [ Steven Perron ]
+  * Build deps: dump ini from 1.3.5 to 1.3.7 in tools/sva (#4092)
+  * Fix binding number calculation in desc sroa (#4095)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan decroation VUID (#4090)
+  * spirv-val: Label standalone Vulkan VUID (#4091)
+
+  [ David Neto ]
+  * use std::string::empty() to test for emptiness (#4098)
+
+  [ greg-lunarg ]
+  * Generate differentiated error codes for buffer oob checking (#4097)
+
+  [ dan sinclair ]
+  * Revert "Generate differentiated error codes for buffer oob checking (#4097)" (#4100)
+
+  [ Pierre Moreau ]
+  * Linker usability improvements (#4084)
+
+  [ Jaebaek Seo ]
+  * Avoid integrity check failures caused by propagating line instructions (#4096)
+
+  [ sfricke-samsung ]
+  * spirv-val: Vulkan atomic storage class (#4079)
+
+  [ Ryan Harrison ]
+  * Remove WebGPU support (#4108)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan Addressing Model check (#4107)
+
+  [ Ben Clayton ]
+  * Migrate all Kokoro build scripts over to use the docker VM image (#4114)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan Memory Scope VUs (#4106)
+
+  [ David Neto ]
+  * Validate Sampled=1 for Vulkan ImageQuerySizeLod, ImageQueryLevels, ImageQueryLod (#4103)
+  * Support pending Intel extensions (#4116)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan EXT builtins (#4115)
+
+  [ mi-ac ]
+  * Remove obsolete GN config (#4110)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label VUID 04683 (#4121)
+  * spirv-val: Label VUID 04662 (#4123)
+  * spirv-val: Label Vulkan atomic semantics VUIDs (#4120)
+
+  [ alan-baker ]
+  * Add cmake to windows path for kokoro (#4129)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan image gather offset VUID (#4118)
+
+  [ alan-baker ]
+  * Validate VK_KHR_zero_initialize_workgroup_memory (#4124)
+
+  [ Caio Marcelo de Oliveira Filho ]
+  * Validate SPV_KHR_workgroup_memory_explicit_layout (#4128)
+
+  [ Jaebaek Seo ]
+  * Set correct scope and line info for DebugValue (#4125)
+
+  [ Steven Perron ]
+  * Mark module as modified if convert-to-half removes decorations. (#4127)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan PSB64 convert VUID (#4122)
+  * spirv-val: label tests for VUID 04657 (#4119)
+  * spirv-val: Add Vulkan Invariant Decoration VUID (#4132)
+  * spirv-val: Fix/Label UniformConstant VUID (#4134)
+  * spriv-val: Vulkan image gather constant component (#4133)
+
+  [ dan sinclair ]
+  * Update a few virtuals to overrides. (#4143)
+
+  [ greg-lunarg ]
+  * Generate differentiated error codes for buffer oob checking (#4144)
+
+  [ Jaebaek Seo ]
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2020.7
+  * Start SPIRV-Tools v2021.0
+
+ -- John Zupin <john@odin>  Mon, 22 Feb 2021 15:18:26 -0700
+
 spirv-tools (2020.6-1lunarg18.04-1) bionic; urgency=medium
 
   [ Vasyl Teliman ]
