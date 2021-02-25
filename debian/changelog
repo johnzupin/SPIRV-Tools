@@ -1,3 +1,9 @@
+spirv-tools (2020.7+2~rc2-1lunarg20.04-1) focal; urgency=medium
+
+  * packaging: updated LunarG's copyrights
+
+ -- John Zupin <john@odin>  Thu, 25 Feb 2021 13:48:23 -0700
+
 spirv-tools (2020.7+2~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ Marijn Suijten ]
