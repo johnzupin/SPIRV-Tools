@@ -1,3 +1,137 @@
+spirv-tools (2020.7+54~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ seppala2 ]
+  * spirv-opt: Don't call GenerateCopy for mismatched image types (#4126)
+
+  [ Ben Clayton ]
+  * Fixes for the vscode language server extension (#4150)
+
+  [ Steven Perron ]
+  * Use standard function to get stdin to binary mode. (#4141)
+
+  [ alan-baker ]
+  * Require an OpSelectionMerge before an OpSwitch (#4154)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add persistent state to the fuzzer (#4137)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Handle Vulkan SPIR-V versions (#4156)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix PartialCount (#4159)
+  * spirv-fuzz: Fix the bug in TransformationReplaceBranchFromDeadBlockWithExit (#4140)
+
+  [ sfricke-samsung ]
+  * spirv-val: Vulkan 64-bit OpAtomicStore check (#4163)
+
+  [ Corentin Wallez ]
+  * Fix -Wextra-semi-stmt -Wsuggest-destructor-override -Wdeprecated-copy-dtor (#4164)
+
+  [ Daniel Koch ]
+  * Add `void` in function declaration to keep some compilers happy (#4160)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Avoid unnecessary dependency (#4165)
+
+  [ Corentin Wallez ]
+  * Suppress warning (#4168)
+  * BUILD.gn: fix typo for 'cflags' (#4169)
+  * Remove usage of std::iterator. (#4171)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add buggy test (#4180)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Avoid invalidating analyses (#4176)
+
+  [ David Neto ]
+  * Support SPV_KHR_linkonce_odr, SPV_KHR_expect_assume (#4161)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label VUID 04634 (#4181)
+  * spirv-val: Add Vulkan Invocation Sematics check (#4182)
+
+  [ John Zupin ]
+  * packaging: updated debian/copyright file
+
+  [ Jaebaek Seo ]
+  * Accept OpImageTexelPointer user in scalar-replacement (#4187)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Make PermutePhiOperands more efficient (#4191)
+  * spirv-fuzz: Make adding equation instructions more efficient (#4190)
+  * spirv-fuzz: Locate instructions more efficiently (#4189)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add Vulkan Execution Scope checks (#4183)
+
+  [ timvpGoogle ]
+  * Roll deps (#4185)
+
+  [ sfricke-samsung ]
+  * spirv-val: Fix Int64Atomics check (#4192)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Apply fuzzer pass before checking exit conditions (#4199)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label VUID 04667 (#4201)
+  * spirv-val: Label VUID 04643 (#4202)
+  * spirv-val: Refactor of atomic pass (#4200)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Remove AddType methods from fuzzerutil (#4204)
+  * spirv-fuzz: Manage available instructions efficiently (#4177)
+  * spirv-fuzz: Avoid invalidating analyses in various transformations (#4205)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Add WGSL compatibility flag to context (#4193)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Improve transformation test oracles (#4207)
+  * spirv-fuzz: Remove destructors from FuzzerPass subclasses (#4209)
+  * spirv-fuzz: Call by value and move in transformations (#4208)
+
+  [ David Neto ]
+  * Make spirv-tools-build-version a common dependency (#4210)
+
+  [ Jason Ekstrand ]
+  * Add validation for SPV_EXT_shader_atomic_float_min_max (#4105)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Fix comments #4215
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Optimize transformations (#4216)
+  * spirv-fuzz: Do not add too many dead blocks (#4217)
+  * spirv-fuzz: Avoid invalidating analyses when splitting blocks (#4218)
+  * spirv-fuzz: Efficiency improvements to fuzzer pass (#4188)
+
+  [ Greg Fischer ]
+  * Add interpolate legalization pass (#4220)
+
+  [ Alastair Donaldson ]
+  * Typo fix (#4225)
+  * spirv-reduce: Remove redundant r-value references (#4232)
+
+  [ Paul Thomson ]
+  * Fix clang-format-diff.py URL (#4233)
+
+  [ Shahbaz Youssefi ]
+  * Fix UWP build (#4235)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Accept limitations in AddFunction (#4226)
+
+  [ sfricke-samsung ]
+  * spriv-val: Fix clang-format bug for VUID string (#4238)
+
+  [ Jakub Kuderski ]
+  * Update CHANGES
+
+ -- John Zupin <john@odin>  Tue, 27 Apr 2021 13:25:20 -0600
+
 spirv-tools (2020.7+2~rc2-1lunarg18.04-1) bionic; urgency=medium
 
   * packaging: updated LunarG's copyrights
