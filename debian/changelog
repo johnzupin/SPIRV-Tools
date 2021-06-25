@@ -1,3 +1,131 @@
+spirv-tools (2021.1+42~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Jakub Kuderski ]
+  * Finalize SPIRV-Tools v2021.1
+  * Start SPIRV-Tools v2021.2
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Permute the order of variables at function scope issue (#4248)
+
+  [ Ben Clayton ]
+  * GraphicsRobustAccessPass: Set module_status_.modified (#4167)
+
+  [ Steven Perron ]
+  * Fix warning in python script. (#4251)
+
+  [ Shiyu Liu ]
+  * spirv-fuzz: Swap positions of two functions in a module (#4236)
+
+  [ Jaebaek Seo ]
+  * Support folding OpBitcast with numeric constants (#4247)
+  * Fix dangling phi bug from loop-unroll (#4239)
+
+  [ Vasyl Teliman ]
+  * Invalidate DefUse analysis (#4255)
+
+  [ Ben Clayton ]
+  * Updates to the vscode SPIR-V extension (#4246)
+
+  [ ncesario-lunarg ]
+  * build: Fix Android build (#4157)
+
+  [ Steven Perron ]
+  * Fix export symbol test. (#4254)
+
+  [ Shiyu Liu ]
+  * spirv-fuzz: Fix underflow problem in `fuzzer_pass_swap_two_functions` (#4253)
+
+  [ David Neto ]
+  * val test: Update capability dependency (#4268)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Respect control flow rules when merging returns (#4279)
+
+  [ alan-baker ]
+  * Fix continue construct for single block loops (#4277)
+
+  [ Greg Fischer ]
+  * Fix crash when optimizing shaders with DebugPrintf (#4280)
+
+  [ Vasyl Teliman ]
+  * Invalidate analyses (#4260)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Cover protobuf message creation in tests (#4285)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Enhance test to improve lines covered (#4289)
+
+  [ Vasyl Teliman ]
+  * spirv-fuzz: Move ApplyTransformation to .cpp file (#4258)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Enhancing permute function variables and its testing (#4295)
+
+  [ EGJ1996 ]
+  * spirv-fuzz: Increase test coverage of TransformationCompositeConstruct (#4301)
+  * spirv-fuzz: Added extra tests for AddTypeFloat and AddTypeInt transformations (#4292)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Fix def-use update in PermutePhiOperands (#4309)
+  * spirv-fuzz: Fix OutlineFunction in presence of unreachable blocks (#4308)
+
+  [ Ryan Harrison ]
+  * Check that valid bitcasted constant was returned (#4311)
+
+  [ Mostafa Ashraf ]
+  * Spirv-fuzz: Achieve coverage of TransformationAddDeadBlock test  (#4306)
+
+  [ EGJ1996 ]
+  * spirv-fuzz: Added test to increase coverage of the add_parameter transformation (#4305)
+
+  [ Shiyu Liu ]
+  * spirv-fuzz: add tests for full coverage of TransformationAccessChain (#4304)
+
+  [ Steven Perron ]
+  * Remove VS2013 kokoro build (#4314)
+
+  [ Shiyu Liu ]
+  * Spirv-fuzz: Add tests for MaybeGet* functions in fuzzerutil (#4284)
+
+  [ Greg Fischer ]
+  * Add kInstErrorMax to instrument.hpp (#4315)
+
+  [ Jaebaek Seo ]
+  * No error report for variable image offset when before-legal-hlsl is on (#4316)
+
+  [ Steven Perron ]
+  * Update lodash (#4317)
+
+  [ EGJ1996 ]
+  * spirv-fuzz: Support bitwise or and xor in TransformationAddBitInstructionSynonym (#4310)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Improve TransformationAddBitInstructionSynonym to check integer signedness (#4312)
+
+  [ David Neto ]
+  * Support Intel extensions for fixed point and hls-float (#4321)
+
+  [ Ashley Hauck ]
+  * Add SPV_KHR_vulkan_memory_model to aggressive_dead_code_elim (#4320)
+
+  [ sfricke-samsung ]
+  * spirv-val: Vulkan Storage Class for Execution Model (#4212)
+
+  [ alan-baker ]
+  * Support SPV_KHR_subgroup_uniform_control_flow (#4318)
+
+  [ John Zupin ]
+  * packaging: add spirv-headers version to control dependency
+
+  [ alan-baker ]
+  * Update SPIRV-Headers deps (#4328)
+
+  [ Diego Novillo ]
+  * Update CHANGES file for upcoming release.
+
+ -- John Zupin <john@odin>  Fri, 25 Jun 2021 14:04:32 -0600
+
 spirv-tools (2020.7+54~rc1-1lunarg18.04-1) bionic; urgency=medium
 
   [ seppala2 ]
