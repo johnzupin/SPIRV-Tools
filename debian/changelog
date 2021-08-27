@@ -1,3 +1,209 @@
+spirv-tools (2021.3~rc1-1lunarg20.04-1) focal; urgency=medium
+
+  [ sfricke-samsung ]
+  * spirv-val: Add GLCompute to VUID 04644 message (#4333)
+  * spirv-val: Label VUID 04780 (#4334)
+
+  [ Diego Novillo ]
+  * Finalize SPIRV-Tools v2021.2
+  * Start SPIRV-Tools v2021.3
+
+  [ David Neto ]
+  * fix symbol exports check, for Android build cases (#4342)
+
+  [ Kévin Petit ]
+  * Initial support for SPV_KHR_integer_dot_product (#4327)
+
+  [ Jason Ekstrand ]
+  * Add validation for SPV_EXT_shader_atomic_float16_add (#4325)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Add illustrative tests for new issues (#4347)
+  * spirv-reduce: Cleanup a few things (#4352)
+  * Add IsReachable function to IRContext (#4323)
+  * spirv-reduce: Allow merging unreachable blocks (#4303)
+
+  [ John Zupin ]
+  * fix strncpy bound error (#4331)
+
+  [ Steven Perron ]
+  * Bump glob-parent from 5.0.0 to 5.1.2. (#4353)
+
+  [ ZHOU He ]
+  * spirv-opt: A pass to removed unused input on OpEntryPoint instructions. (#4275)
+
+  [ Assiduous ]
+  * Enabled tvOS platform (#4329)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Avoid out of bounds access (#4355)
+
+  [ Ben Ashbaugh ]
+  * add tests for SPV_KHR_bit_instructions (#4350)
+
+  [ Steven Perron ]
+  * Add remove_unused_interface_variable_pass.* to BUILD.gn (#4363)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Added tests for signedness analysis (#4361)
+  * spirv-fuzz: Check updated analyses in transformation tests (#4266)
+  * spirv-reduce: Eliminate skeletal structured control flow construct (#4360)
+
+  [ y-novikov ]
+  * Update SPIRV-Headers deps (#4369)
+
+  [ Greg Fischer ]
+  * Add non-semantic vulkan extended instruction set (#4362)
+  * Fix vendor table build in BUILD.gn for nonsemantic.vulkan.debuginfo.100 (#4375)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: support building using gn (#4365)
+  * Fix BUILD.gn (#4378)
+
+  [ Jaebaek Seo ]
+  * spirv-opt: support SPV_EXT_shader_image_int64 (#4379)
+
+  [ pkasting ]
+  * Fix -Wunreachable-code-aggressive. (#4358)
+
+  [ Jamie Madill ]
+  * Add missing fuzzer header dependency. (#4381)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Don't replace memory semantics / scope operands (#4349)
+
+  [ Jakub Kuderski ]
+  * Explain how to run tests with CMake and Bazel (#4383)
+  * Don't mention VS2013 in PR review instructions (#4384)
+
+  [ Greg Fischer ]
+  * Add common enum for debug info instructions from either opencl or vulkan (#4377)
+
+  [ Chia-I Wu ]
+  * CMake: add ENABLE_RTTI option (#4382)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Support atomic operations opcode (#4348)
+
+  [ Shiyu Liu ]
+  * spirv-fuzz: TransformationWrapVectorSynonym that rewrites scalar operations using vectors (#4376)
+
+  [ Greg Fischer ]
+  * spirv-opt: Where possible make code agnostic of opencl/vulkan debuginfo (#4385)
+
+  [ alan-baker ]
+  * Fix local size hint id tests (#4400)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Tighten checks on null and undef pointers (#4367)
+  * spirv-fuzz: Fix vector wrapping fuzzer pass (#4392)
+  * spirv-fuzz: Avoid out-of-bounds access (#4395)
+  * spirv-fuzz: Fix problem with instruction context (#4394)
+
+  [ Vasyl Teliman ]
+  * Initialize context in `opt::Instruction`'s move constructor (#4397)
+
+  [ Corentin Wallez ]
+  * BUILD.gn: introduce finer grained internal targets for Tint (#4399)
+
+  [ krockot ]
+  * Fix public deps on generated headers (#4386)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Use reference in CanMakeSynonymOf (#4401)
+
+  [ dong-ja ]
+  * Add control dependence analysis to opt (#4380)
+  * spirv-opt: Add more tests to control dependence  (#4410)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Quit fuzzer pass when no types are available (#4409)
+  * spirv-fuzz: Allow inapplicable transformations to be ignored (#4407)
+
+  [ Greg Fischer ]
+  * spirv-opt: Add specific handling of vulkan debug info differences (#4398)
+
+  [ dong-ja ]
+  * spirv-opt: Rename ControlDependenceAnalysis::DoesBlockExist to HasBlock (#4412)
+
+  [ Alastair Donaldson ]
+  * spirv-fuzz: Add minimal SPIR-V example to test shaders (#4415)
+
+  [ alan-baker ]
+  * Fix validator crash (#4418)
+
+  [ Ben Clayton ]
+  * Fuzzer: Default the new constructor parameter (#4438)
+
+  [ Alastair Donaldson ]
+  * Add GraphicsFuzz shaders to fuzzer corpus (#4429)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: support AtomicLoad (#4330)
+
+  [ Alastair Donaldson ]
+  * Add CMake rules for libFuzzer targets (#4445)
+
+  [ Ben Clayton ]
+  * fuzzers: Disable suggest-destructor-override warning (#4439)
+
+  [ Mostafa Ashraf ]
+  * spirv-fuzz: Support AtomicStore (#4440)
+
+  [ alan-baker ]
+  * Fix array layout validation slowdown (#4449)
+  * Add a section releases to the README (#4444)
+
+  [ dong-ja ]
+  * Add new target for spirv-lint (#4446)
+  * Remove PCH from source/lint/CMakeLists.txt (#4459)
+  * spirv-opt: Add dataflow analysis framework (#4402)
+
+  [ Greg Fischer ]
+  * spirv-opt: Add handling of vulkan debug info to DebugInfoManager (#4423)
+
+  [ alan-baker ]
+  * Update SPIRV-Headers (#4463)
+  * Limit location validation (#4467)
+
+  [ 5265644D61736F6E ]
+  * fix SIGSEGV when reading from a non-existant file (#4453)
+
+  [ Nicolas Capens ]
+  * Don't fold unsigned divides of an constant and a negation (#4457)
+  * Fix early-out for Clamp constant folding (#4461)
+
+  [ alan-baker ]
+  * Disallow loading a runtime-sized array (#4473)
+
+  [ Jaebaek Seo ]
+  * Add spirv-opt convert-to-sampled-image pass (#4340)
+
+  [ Jamie Madill ]
+  * GN: Suppress unreachable code warnings. (#4476)
+
+  [ alan-baker ]
+  * Don't double count variables for location validation (#4474)
+  * Fix matrix stride validation (#4468)
+
+  [ dong-ja ]
+  * spirv-lint: add basic CLI argument handling (#4478)
+
+  [ sfricke-samsung ]
+  * spirv-val: Fix WorkgroupSize VUID 04425 (#4482)
+
+  [ dong-ja ]
+  * Add divergence analysis to linter (#4465)
+
+  [ Greg Fischer ]
+  * spirv-val: Validate vulkan debug info similarly to opencl debug info (#4466)
+
+  [ Jaebaek Seo ]
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2021.3
+
+ -- John Zupin <john@odin>  Fri, 27 Aug 2021 15:14:40 -0600
+
 spirv-tools (2021.1+42~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ Jakub Kuderski ]
