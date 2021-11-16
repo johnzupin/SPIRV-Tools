@@ -1,3 +1,235 @@
+spirv-tools (2021.3+86~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Jaebaek Seo ]
+  * Start SPIRV-Tools v2021.4
+
+  [ gnl21 ]
+  * Add a feature for allowing LocalSizeId (#4492)
+
+  [ Jakub Kuderski ]
+  * spirv-lint: Add lint based on divergence analysis (#4488)
+
+  [ Lei Zhang ]
+  * Only add `-DSPIRV_CHECK_CONTEXT` for Debug builds (#4496)
+
+  [ Steven Perron ]
+  * Handle exported functions in ADCE (#4495)
+
+  [ Jaebaek Seo ]
+  * Set threshold for reduce-load-size pass (#4499)
+
+  [ Alastair Donaldson ]
+  * Adjust build for fuzzer targets to support OSS-Fuzz (#4498)
+
+  [ David Neto ]
+  * fix parsing of bad binary exponents in hex floats (#4501)
+
+  [ gnl21 ]
+  * Remove environment features that are never used (#4491)
+
+  [ Alastair Donaldson ]
+  * spirv-val: Fix ubsan error (#4505)
+
+  [ alan-baker ]
+  * Add some missing switch validation (#4507)
+
+  [ Alastair Donaldson ]
+  * Add UBSan kokoro configuration (#4512)
+
+  [ David Neto ]
+  * Fix validation message for cooperative matrix column type (#4502)
+
+  [ alan-baker ]
+  * Fix infinite loop in GetBlockDepth (#4519)
+  * Change validator boolean tests to avoid asserts (#4503)
+
+  [ Steven Perron ]
+  * Handle out-of-bounds accesses in VDCE (#4518)
+
+  [ alan-baker ]
+  * Fix bad order of checks in atomic validation (#4524)
+
+  [ Alastair Donaldson ]
+  * Fix UBSan kokoro config (#4522)
+
+  [ alan-baker ]
+  * Fix infinite loop in validation (#4523)
+
+  [ Steven Perron ]
+  * Roll external/googletest/ b7d472f12..955c7f837 (111 commits) (#4521)
+
+  [ Alastair Donaldson ]
+  * spirv-opt: Avoid integer overflow during constant folding (#4511)
+  * spirv-fuzz: Account for differing signedness in WrapVectorSynonym (#4414)
+
+  [ Greg Fischer ]
+  * Add preserve_interface mode to aggressive_dead_code_elim (#4520)
+  * spirv-opt: Switch from Vulkan.DebugInfo to Shader.DebugInfo (#4493)
+
+  [ Steven Perron ]
+  * Fix extract with out-of-bounds index (#4529)
+
+  [ Alastair Donaldson ]
+  * Fix UBSan error in spirv-dis fuzzer (#4517)
+
+  [ alan-baker ]
+  * Fix checks for offset in nested structs (#4531)
+  * Update SPIRV-Headers (#4543)
+
+  [ Jamie Madill ]
+  * GN: Fix build for debuginfo codegen. (#4536)
+
+  [ Greg Fischer ]
+  * Fix inst_buff_addr_check to handle struct loads (#4489)
+  * Handle NonSemantic.Shader Debug[No]Line (#4530)
+
+  [ Steven Perron ]
+  * Adce refactor (NFC) (#4547)
+
+  [ Alastair Donaldson ]
+  * Suppress protobuf warning (#4551)
+
+  [ alan-baker ]
+  * Do not assume there are execution modes (#4555)
+
+  [ Lukas Hermanns ]
+  * spirv-opt: Don't eliminate dead members from StructuredBuffer (#4553)
+
+  [ David Neto ]
+  * Avoid implicit fallthrough, by duplicating code (#4556)
+
+  [ Steven Perron ]
+  * More ADCE refactoring (#4548)
+
+  [ Ryan Harrison ]
+  * Stop consuming input in fuzzers to select target environment (#4544)
+
+  [ Greg Fischer ]
+  * Fix ConstantManager to not run AnalyzeInstDefUse if DefUse not valid (#4557)
+
+  [ Alastair Donaldson ]
+  * Include a maximum value for spv_target_env (#4559)
+
+  [ David Neto ]
+  * Avoid bugprone-move-forwarding-reference warning in Clang (#4560)
+
+  [ Jaebaek Seo ]
+  * Fix CI failure (#4570)
+
+  [ Greg Fischer ]
+  * Fix merge-block assertions with debugInfo (#4563)
+
+  [ alan-baker ]
+  * Update SPIRV-Headers (#4573)
+
+  [ Ryan Harrison ]
+  * Use max enum instead of static array of legal values (#4571)
+
+  [ Alastair Donaldson ]
+  * Fix output of SPIR-V version in diagnostic (#4562)
+
+  [ David Neto ]
+  * Enable OpConstFunctionPointerINTEL outside function (#4576)
+
+  [ Greg Fischer ]
+  * Mark DebugInfoNone as live in ADCE when DebugInfo present (#4568)
+
+  [ David Neto ]
+  * Remove Appveyor CI, update README (#4578)
+
+  [ alan-baker ]
+  * Account for strided components in arrays (#4575)
+  * Consider 0xffffffff offset as missing (#4564)
+
+  [ JiaoluAMD ]
+  * Opt passes should apply to the exported functions (#4554)
+
+  [ David Neto ]
+  * README: Update tested versions of compilers (#4579)
+  * README: Remove appveyor build badge. (#4584)
+
+  [ Greg Fischer ]
+  * Generate constants directly in CreateDebugInlinedAt (#4572)
+
+  [ Alastair Donaldson ]
+  * Fix i386 build issues related to random generation (#4586)
+
+  [ Dave Airlie ]
+  * opt/spec_constants: fix bit pattern width checks. (#4588)
+
+  [ David Neto ]
+  * opt: set upper bits of spec constant according to spec (#4589)
+
+  [ alan-baker ]
+  * Handle missing execution modes for limitation check (#4594)
+
+  [ Alastair Donaldson ]
+  * Add libFuzzer target for spirv-fuzz (#4434)
+
+  [ Steven Perron ]
+  * Make IsLocalVar in ADCE work at any time. (NFC) (#4595)
+
+  [ Jaebaek Seo ]
+  * Add spirv-opt pass to replace descriptor accesses based on variable indices (#4574)
+
+  [ Steven Perron ]
+  * Do not fold snegate feeding sdiv. (#4600)
+  * Delete decorations before replaces uses in dead branch elim (#4598)
+  * Update passes to handle function declarations (#4599)
+
+  [ David Neto ]
+  * Avoid confusing short-circuiting (#3404)
+
+  [ alan-baker ]
+  * Only validate workgroup layout for explicit workgroup memory (#4542)
+
+  [ Steven Perron ]
+  * Fix Linker generator ID (#4601)
+  * Change branch handling in ADCE to fix errors (#4596)
+
+  [ sfricke-samsung ]
+  * spirv-val Update LocalSizeId VUID (#4602)
+
+  [ timlyeee ]
+  * Make cxx exceptions controllable  (#4591)
+
+  [ Ralf Habacker ]
+  * In generated cmake config file for SPIRV-Tools only access cmake target, if present (#4590)
+
+  [ Alastair Donaldson ]
+  * Avoid bitwise and in boolean expression (#4603)
+
+  [ Steven Perron ]
+  * Handle overflowing id in merge return (#4606)
+
+  [ Pelle Johnsen ]
+  * Add Wasm build (#3752)
+
+  [ David Neto ]
+  * Update CHANGES, README for WebAssembly build (#4609)
+  * Remove publish-to-npm step for Wasm build (#4610)
+  * Run the wasm build on push and pull_request (#4614)
+
+  [ Jaebaek Seo ]
+  * spirv-opt: create OpDecorate for OpMemberDecorate in desc-sroa (#4617)
+
+  [ alan-baker ]
+  * Improve decoration validation (#4490)
+
+  [ Jakub Kuderski ]
+  * Update CHANGES
+  * Update DEPS (#4625)
+  * Clarify how to update DEPS (#4626)
+
+  [ Greg Fischer ]
+  * Fix handling of OpPhi in convert-relaxed-to-half (#4618)
+
+  [ alan-baker ]
+  * Allow WorkgroupSize on variables for Kernels (#4627)
+  * Update SPIRV-Headers (#4628)
+
+ -- John Zupin <john@odin>  Tue, 16 Nov 2021 16:07:29 -0700
+
 spirv-tools (2021.3~rc1-1lunarg18.04-1) bionic; urgency=medium
 
   [ sfricke-samsung ]
