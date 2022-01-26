@@ -7,7 +7,7 @@ Copyright: 2020, Advanced Micro Devices, Inc
            2020, André Perez Maselco
            2015-2019, Google Inc
            2017-2021, Google LLC
-           2016-2020, LunarG Inc
+           2016-2022, LunarG Inc
            2019, NVIDIA Corporation
            2017-2018, Pierre Moreau
            2019, Samsung Inc
@@ -50,7 +50,7 @@ Files: .appveyor.yml
        utils/vscode/package.json
        utils/vscode/spirv.json
        utils/vscode/spirv.json.tmpl
-Copyright: 2021, LunarG Inc
+Copyright: 2022, LunarG Inc
 License: Apache-2.0
 
 Files: utils/vscode/src/lsp/*
@@ -58,7 +58,7 @@ Copyright: 2018-2019, The Go Authors
 License: Apache-2.0
 
 Files: debian/*
-Copyright: 2021, LunarG Inc
+Copyright: 2022, LunarG Inc
 License: BSD-3-clause or GPL-3 or MIT
 
 Files: tools/sva/src/spirv.data.js
