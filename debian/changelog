@@ -1,3 +1,138 @@
+spirv-tools (2022.1+33~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Jakub Kuderski ]
+  * Finalize SPIRV-Tools v2021.4
+  * Start SPIRV-Tools v2021.5
+
+  [ alan-baker ]
+  * Allow ADCE to remove dead inputs (#4629)
+
+  [ Steven Perron ]
+  * Manually fold floating point division by zero (#4637)
+
+  [ Natalie Chouinard ]
+  * Remove default arguments from lambda (#4648)
+  * Copy OpDecorateStrings in DescriptorScalarReplacementPass (#4649)
+
+  [ Diego Novillo ]
+  * Fix https://github.com/KhronosGroup/SPIRV-Tools/issues/4462 (#4651)
+
+  [ Alastair Donaldson ]
+  * Exit when ID overflow occurs in a fuzzing build (#4652)
+  * Avoid uninitialised read when parsing hex float (#4646)
+
+  [ Shahbaz Youssefi ]
+  * Use schema instead of reserved in header description (#4615)
+
+  [ Marius Hillenbrand ]
+  * Fix endianness of string literals (#4622)
+
+  [ Sebastien Alaiwan ]
+  * Avoid an extra map lookup (#4623)
+
+  [ Steven Perron ]
+  * Fix kokoro asan run (#4655)
+
+  [ Sebastien Alaiwan ]
+  * Use a struct (instead of tuple), with explicit member names. (#4621)
+  * DefUseManager: rename comparison operators to 'CompareAndPrintDifferences' (#4624)
+
+  [ Andrei Malashkin ]
+  * treat google user type as normal semantic google. It's a backport from diligent fork (#4632)
+
+  [ jiaxin.lai ]
+  * fix file encoding (#4654)
+
+  [ Sebastien Alaiwan ]
+  * Fix compilation (#4656)
+
+  [ Dave Airlie ]
+  * optimizer: restore previous ABI. (#4653)
+
+  [ Alastair Donaldson ]
+  * Simplify the as fuzzer target (#4647)
+
+  [ SpaceIm ]
+  * CMake iOS fixes: rely on CMAKE_SYSTEM_NAME and handle bundle installation (#4619)
+
+  [ Alastair Donaldson ]
+  * Avoid id bound errors during opt fuzzing (#4658)
+
+  [ Shahbaz Youssefi ]
+  * Refactor the disassembler code for reuse (#4616)
+
+  [ Steven Perron ]
+  * Rename strip reflect to strip nonsemantic (#4661)
+  * reflect debug (#4662)
+
+  [ alan-baker ]
+  * Basic support for SPIR-V 1.6 (#4663)
+
+  [ David Neto ]
+  * Patch location validation VUIDs (#4664)
+  * val: interface struct with builtins must be Block (#4665)
+
+  [ Alastair Donaldson ]
+  * Avoid uninitialized access to instruction opcode (#4673)
+  * Fix opt fuzzer test harness (#4670)
+
+  [ Steven Perron ]
+  * Remove misleading comment. (#4676)
+
+  [ Pierre Moreau ]
+  * Improvements to disassembly within PassManager (#4677)
+
+  [ Minmin Gong ]
+  * Disable a codepage warning on non-English OS (#4668)
+
+  [ Pierre Moreau ]
+  * Remove duplicated "the" from comments (#4666)
+
+  [ David Neto ]
+  * Add SPIR-V 1.6 support to wasm build (#4674)
+
+  [ Pierre Moreau ]
+  * Linker improvements (#4679)
+  * linker: Address conversion error introduced in earlier rework (#4685)
+
+  [ smikims ]
+  * Avoid infinite recursion in comparison operators on SmallVector (#4681)
+
+  [ alan-baker ]
+  * Vulkan 1.3 (#4686)
+
+  [ Jaebaek Seo ]
+  * spirv-opt: add pass to Spread Volatile semantics (#4667)
+
+  [ Steven Perron ]
+  * Fix roll_deps.sh (#4687)
+
+  [ Diego Novillo ]
+  * Update DEPS file (#4688)
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2022.1
+  * Start SPIRV-Tools v2022.2
+
+  [ luzpaz ]
+  * Fix various source comment (doxygen) typos (#4680)
+
+  [ David Neto ]
+  * Fix typo in comment: SPIR-V section for debug instructions (#4683)
+
+  [ John Zupin ]
+  * packaging: update copyright
+
+  [ alan-baker ]
+  * Fix handling of Nontemporal image operand (#4692)
+
+  [ Steven Perron ]
+  * Complete handling of RayQueryKHR type (#4690)
+
+  [ Jakub Kuderski ]
+  * Update CHANGES
+
+ -- John Zupin <john@odin>  Thu, 03 Feb 2022 14:02:50 -0700
+
 spirv-tools (2021.3+86~rc1-1lunarg18.04-1) bionic; urgency=medium
 
   [ Jaebaek Seo ]
