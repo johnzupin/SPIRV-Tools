@@ -1,3 +1,10 @@
+spirv-tools (2022.2~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ John Zupin ]
+  * packaging: update spirv-headers dep version
+
+ -- john <john@odin>  Mon, 11 Apr 2022 11:18:39 -0600
+
 spirv-tools (2022.1+33~rc1-1lunarg18.04-1) bionic; urgency=medium
 
   [ Jakub Kuderski ]
