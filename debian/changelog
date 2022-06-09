@@ -1,3 +1,217 @@
+spirv-tools (2022.2+27~rc1-1lunarg20.04-1) focal; urgency=medium
+
+  [ Shahbaz Youssefi ]
+  * Introduce spirv-diff (#4611)
+
+  [ Steven Perron ]
+  * Have scalar replacement use undef instead of null (#4691)
+
+  [ Diego Novillo ]
+  * Disable spirv-diff tests. (#4695)
+
+  [ Shahbaz Youssefi ]
+  * Stabilize the output of spirv-diff (#4698)
+  * spirv-diff: Handle OpSpecConstant array sizes (#4700)
+
+  [ David Neto ]
+  * Update test for parsing memory access masks (#4703)
+
+  [ Steven Perron ]
+  * Generalize the copyright check (#4702)
+
+  [ Greg Fischer ]
+  * [spirv-val] Allow 0 Component Count for DebugTypeArray for Shader (#4706)
+
+  [ Ryan Harrison ]
+  * Remove reference to protobuf internals from fuzzers (#4701)
+
+  [ pd-valve ]
+  * Optimize Instruction::Instruction (#4705)
+  * avoid unnecessary reallocations in GetOperandConstants (#4708)
+
+  [ Shahbaz Youssefi ]
+  * spirv-diff: Match OpSpecConstantComposite correctly (#4704)
+
+  [ sfricke-samsung ]
+  * Add OpModuleProcessed to debug opcode (#4694)
+
+  [ Steven Perron ]
+  * Bump pathval from 1.1.0 to 1.1.1 in /tools/sva (#4716)
+
+  [ Natalie Chouinard ]
+  * Handle propagation of arrays with decorations (#4717)
+
+  [ sfricke-samsung ]
+  * spirv-opt: Add OpExecutionModeId support (#4719)
+
+  [ pd-valve ]
+  * Optimize Type::HashValue (#4707)
+  * Optimize DefUseManager allocations (#4709)
+
+  [ Steven Perron ]
+  * Use bazel 5 for bazel builds. (#4738)
+
+  [ Jeremy Hayes ]
+  * spirv-val: Validate DebugTypeMatrix (#4732)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label Vulkan VUID 04734 (#4739)
+
+  [ Steven Perron ]
+  * Don't rebuilt valid analyses. (#4733)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label VUID 06491 (#4745)
+
+  [ Steven Perron ]
+  * Add pass to remove DontInline function control (#4747)
+
+  [ IcyTv ]
+  * Fixed Bazel Windows build (#4736)
+
+  [ Steven Perron ]
+  * Update bazel output directory in gitignore. (#4746)
+  * Generalize assert in ccp (#4735)
+  * Better handling of 0xFFFFFFFF when folding vector shuffle (#4743)
+  * Reset the id bound on the module in compact ids (#4744)
+
+  [ sfricke-samsung ]
+  * spirv-val: Disallow array of push constants (#4742)
+  * spirv-val: Label Vulkan RuntimeArray VUID (#4749)
+  * spirv-val: Add Vulkan Image VUID 06214 (#4750)
+  * spirv-val: Add Vulkan Dref not allowed 3D dim VUID (#4751)
+  * spirv-val: Small Cleanup of validate image (#4752)
+
+  [ Daniel Thornburgh ]
+  * Qualify std::move. (#4741)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add better error code for invalid operand (#4753)
+
+  [ Greg Fischer ]
+  * spirv-opt: (WIP) Eliminate Dead Input Component Pass (#4720)
+
+  [ Nicolas Capens ]
+  * BUILD.gn: Enable independent builds within the Chromium tree (#4762)
+
+  [ sfricke-samsung ]
+  * spirv-val: Label and add test for PSB Aligned (#4756)
+  * spirv-val: Add Vulkan 32-bit bit op Base (#4758)
+
+  [ Roy.li ]
+  * Use types have same widths in loop condition. (#4763)
+
+  [ sfricke-samsung ]
+  * spirv-val: Clean up VariablePointers logic (#4755)
+
+  [ Shahbaz Youssefi ]
+  * spirv-diff: Refactor instruction grouping and matching (#4760)
+
+  [ Nikita ]
+  * Support SPV_KHR_uniform_group_instructions (#4734)
+
+  [ sfricke-samsung ]
+  * spirv-val: Add more Vulkan VUID labels (#4764)
+
+  [ Jaebaek Seo ]
+  * Handle shaders without execution model in spread-volatile-semantics (#4766)
+
+  [ Nicolas Capens ]
+  * BUILD.gn: Fix standalone GN builds (#4765)
+
+  [ Shahbaz Youssefi ]
+  * spirv-diff: Use GetSingleWord*Operand (#4768)
+
+  [ sfricke-samsung ]
+  * spirv-as: Add opcode name when possible (#4757)
+
+  [ Shahbaz Youssefi ]
+  * spirv-diff: Basic support for OpTypeForwardPointer (#4761)
+  * spirv-diff: Fix OpTypeFunction matching w.r.t operand count (#4771)
+
+  [ Nico Weber ]
+  * Suppress -Wunused-but-set-variable on variable (#4777)
+
+  [ Natalie Chouinard ]
+  * Roll external/googletest/ f45d5865e..25dcdc7e8 (26 commits)
+  * Roll external/re2/ 611baecbc..0c5616df9 (14 commits)
+  * Roll external/spirv-headers/ 6a55fade6..4995a2f27 (8 commits)
+  * Update CHANGES
+  * Fix gen_build_version on Windows (#4780)
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2022.2
+  * Start SPIRV-Tools v2022.3-dev
+
+  [ Steven Perron ]
+  * Don't try to unroll loop with step count 0. (#4769)
+  * Use cmake 3.23 on Windows. (#4782)
+
+  [ Chad Versace ]
+  * Fix CMake for librt (#4773)
+
+  [ Steven Perron ]
+  * Add folding rule to generate Fma instructions (#4783)
+
+  [ Daniele Vettorel ]
+  * Revert "Add folding rule to generate Fma instructions (#4783)" (#4785)
+
+  [ sindney ]
+  * spirv-opt: skips if_conversion when dontflatten is set (#4770)
+
+  [ Karol Herbst ]
+  * linker: Recalculate interface variables (#4784)
+
+  [ Steven Perron ]
+  * Reapply "Add folding rule to generate Fma instructions (#4783)" (#4789)
+  * Add SpvBuiltInCullMaskKHR to a switch (#4790)
+
+  [ JiaoluAMD ]
+  * Handle dontinline function in spread-volatile-semantics (#4776)
+
+  [ Kévin Petit ]
+  * Add support for SPV_KHR_subgroup_rotate (#4786)
+
+  [ Daniel Koch ]
+  * spirv-val: Add CullMaskKHR support (#4792)
+
+  [ JiaoluAMD ]
+  * spirv-opt : Add FixFuncCallArgumentsPass (#4775)
+
+  [ Rayan Hatout ]
+  * Remove deprecated flags from spirv-opt help message (#4788)
+
+  [ Jaebaek Seo ]
+  * spirv-opt: add pass for interface variable scalar replacement (#4779)
+
+  [ Daniele Vettorel ]
+  * Handle chains of OpAccessChain in replacing variable index access for flattened resources. (#4797)
+
+  [ Steven Perron ]
+  * Handle 64-bit integers in local access chain convert (#4798)
+
+  [ Ryan Harrison ]
+  * Add warning about spurious 'git cl upload' messages (#4800)
+
+  [ stu-s ]
+  * Add SPV_KHR_fragment_shader_barycentric support (#4805)
+
+  [ Steven Perron ]
+  * Add more folding for composite instructions (#4802)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add PerVertexKHR (#4807)
+
+  [ Nicolas Capens ]
+  * Fold multiply and subtraction into FMA with negation (#4808)
+
+  [ Diego Novillo ]
+  * Roll external/googletest/ 25dcdc7e8..548b13dc3 (38 commits)
+  * Roll external/re2/ 0c5616df9..5723bb895 (6 commits)
+  * Roll external/spirv-headers/ b765c355f..5a1218669 (1 commit)
+  * Update CHANGES
+
+ -- john <john@odin>  Thu, 09 Jun 2022 09:25:25 -0600
+
 spirv-tools (2022.2~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ John Zupin ]
