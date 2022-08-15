@@ -1,3 +1,123 @@
+spirv-tools (2022.2+71~rc1-1lunarg18.04-1) bionic; urgency=medium
+
+  [ Shahbaz Youssefi ]
+  * spirv-val: Optimize struct field decoration lookup (#4809)
+
+  [ Junda Liu ]
+  * spirv-val: Add support for SPV_AMD_shader_early_and_late_fragment_tests (#4812)
+
+  [ strangewiz ]
+  * Fix usage of sprintf. (#4811)
+
+  [ David Neto ]
+  * Simplify invocation of snprintf (#4815)
+
+  [ Steven Perron ]
+  * Avoid replacing access chain with OOB access (#4819)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label 06807 and 06808 VUID (#4817)
+
+  [ manas-kulkarni ]
+  * Ability to fold Constant Vector times Matrix and Matrix times vector instructions (#4818)
+
+  [ David Neto ]
+  * Remove stray output to stdout from tests (#4816)
+
+  [ Steven Perron ]
+  * Avoid undefined divide-by-0 (#4821)
+  * Do not check if the binary changed if encoding is different (#4824)
+  * Fail validation when RelaxedPrecision is applied to a type. (#4823)
+
+  [ PENGUINLIONG ]
+  * Fixed crash unrolling loops with residual iterations (#4820)
+
+  [ Steven Perron ]
+  * Avoid if-conversion if both predecessors are the same (#4826)
+  * Fix SplitLoopHeader to handle single block loop (#4829)
+
+  [ Alastair Donaldson ]
+  * Avoid unrolling large loops while fuzzing (#4835)
+
+  [ Steven Perron ]
+  * Build struct order only for the section needed when unrolling. (#4830)
+
+  [ Mike ]
+  * Fix segfault in `SpirvTools::Disassemble` when printing (#4833)
+
+  [ Steven Perron ]
+  * Write binary files to stdout in binary on windows. (#4834)
+
+  [ alan-baker ]
+  * Use structural dominance to validate cfg (#4832)
+  * Fix unreachable loop increment (#4836)
+
+  [ Steven Perron ]
+  * DCE: clean up the cfg for all functions that were processed. (#4840)
+
+  [ Kevin Lubick ]
+  * use exec_tools instead of tools for better RBE compatibility (#4837)
+
+  [ Steven Perron ]
+  * Avoid undefined behaviour when getting debug opcode (#4842)
+  * Reduce load size does not work for array with spec const size (#4845)
+  * Add limit for scalar replacment when fuzzing (#4843)
+
+  [ David Neto ]
+  * Update validator diagnostics with "structurally dominated" (#4844)
+
+  [ alan-baker ]
+  * Use structural reachability in CFG checks (#4849)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add Vulkan decoration interface (#4831)
+
+  [ Greg Fischer ]
+  * Fix small bug traversing users in interface_var_sroa (#4850)
+  * Revert "Optimize DefUseManager allocations (#4709)" (#4846)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label VUID 06925 (#4852)
+  * spirv-val: Add OpConvertUToAccelerationStructureKHR (#4838)
+
+  [ Pankaj Mistry ]
+  * Implement SPV_NV_bindless_texture related changes (#4847)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add SPV_KHR_ray_query (#4848)
+
+  [ Alastair Donaldson ]
+  * spirv-as: Avoid recursion when skipping whitespace (#4866)
+
+  [ Spencer Fricke ]
+  * spirv-val: Fix Vulkan memory scope (#4869)
+
+  [ David Neto ]
+  * spirv-as: Avoid overflow when parsing exponents on hex floats (#4874)
+
+  [ alan-baker ]
+  * Update structure layout validation (#4876)
+
+  [ Jamie Madill ]
+  * Remove default copy constructor in header. (#4879)
+
+  [ alan-baker ]
+  * Require ColMajor or RowMajor for matrices (#4878)
+
+  [ Pankaj Mistry ]
+  * spirv-opt : SPV_NV_bindless_texture related changes (#4870)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label VUID 06997 (#4881)
+
+  [ jeremyg-lunarg ]
+  * spirv-diff: Fix asserts in ComparePreambleInstructions() (#4872)
+
+  [ Nathan Gauër ]
+  * Update CHANGES (#4886)
+
+ -- john <john@odin>  Mon, 15 Aug 2022 13:16:51 -0600
+
 spirv-tools (2022.2+27~rc1-1lunarg18.04-1) bionic; urgency=medium
 
   [ Shahbaz Youssefi ]
