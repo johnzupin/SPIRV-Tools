@@ -1,3 +1,145 @@
+spirv-tools (2022.4+1.3.231.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Spencer Fricke ]
+  * spirv-val: Add SPV_KHR_ray_tracing instructions (#4871)
+
+  [ Steven Perron ]
+  * Local access chain convert: check for negative indexes (#4884)
+
+  [ Nathan Gauër ]
+  * Allow spirv-opt print-all to show pretty IDs (#4888)
+
+  [ Steven Perron ]
+  * Fix shuffle feeding shuffle with undef literal (#4883)
+
+  [ Nathan Gauër ]
+  * Finalize SPIRV-Tools v2022.3
+  * Start SPIRV-Tools v2022.4
+
+  [ Cassandra Beckley ]
+  * Fix array copy propagation (#4890)
+
+  [ Greg Fischer ]
+  * Fix ADCE to not eliminate top level DebugInfo instructions (#4889)
+
+  [ Nathan Gauër ]
+  * spirv-opt: fix copy-propagate-arrays index opti on structs. (#4891)
+
+  [ Greg Fischer ]
+  * Add structs to eliminate dead input components (#4894)
+
+  [ Spencer Fricke ]
+  * spirv-val: Remove ImageWrite Texel todo (#4899)
+  * spirv-val: SBT Index for OpExecuteCallableKHR (#4900)
+
+  [ Greg Fischer ]
+  * Disable DebugInfoMgr during the entire CompactIds pass (#4905)
+
+  [ jeremyg-lunarg ]
+  * tests: Make InstrumentPass tests use SinglePassRunAndMatch<> and stateful pattern matching (#4897)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add SPV_KHR_ray_tracing storage class (#4868)
+  * spirv-val: Use lookup table for Decoration string (#4903)
+  * spirv-val: Better message for using OpTypeBool in input/output (#4901)
+
+  [ Steven Perron ]
+  * Improve algorithm to reorder blocks in a function (#4911)
+
+  [ Greg Fischer ]
+  * Fix ADCE to mark scope and inlined_at of line instructions as live. (#4910)
+
+  [ jeremyg-lunarg ]
+  * Instrument: Add OpNames to generated functions and variables (#4873)
+
+  [ Pankaj Mistry ]
+  * Implement tool changes for SPV_EXT_mesh_shader. (#4915)
+
+  [ Spencer Fricke ]
+  * spirv-opt: Remove unused fold spec const code (#4906)
+
+  [ Samuel Thibault ]
+  * build: cmake: Add support for GNU/Hurd (#4895)
+
+  [ Steven Perron ]
+  * Improve time to build dominators (#4916)
+
+  [ John Zupin ]
+  * packaging: update control file for spirv-headers version change
+
+  [ Brad Smith ]
+  * Support building on OpenBSD (#4912)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label Builtin Array Test VUIDs (#4921)
+  * spirv-val: consider OpEmitMeshTasksEXT a terminator instruction (#4923)
+  * spirv-diff: Allow no SpecId (#4904)
+
+  [ Jeremy Hayes ]
+  * Fix DebugInlinedAt Line operand (#4928)
+
+  [ Hans-Kristian Arntzen ]
+  * Also consider EmitMeshTasksEXT terminator in spirv-opt. (#4930)
+
+  [ Greg Fischer ]
+  * Fix missing and incorrect DebugValues (#4929)
+
+  [ Spencer Fricke ]
+  * spirv-val: Test file suffix consistency (#4925)
+  * spirv-val: Label ShaderRecordBufferKHR VUID (#4926)
+  * spirv-val: Label VUID 07290 (#4927)
+  * spirv-val: Update VUID from 1.3.228 Vulkan spec (#4936)
+
+  [ David Neto ]
+  * spirv-val: Fix comment for checking extended alignments (#4937)
+
+  [ Greg Fischer ]
+  * Cleanup code for 272e4b3d0 (#4934)
+
+  [ Ricardo Garcia ]
+  * spirv-val: Make it legal to use arrays of ray queries (#4938)
+
+  [ Diego Novillo ]
+  * Fix builtin validator for unimplemented opcodes. (#4940)
+
+  [ Steven Perron ]
+  * Remove `spvOpcodeTerminatesExecution` (#4931)
+
+  [ Spencer Fricke ]
+  * spirv-opt: Fix stacked CompositeExtract constant folds (#4932)
+
+  [ Greg Fischer ]
+  * Fix CreatDebugInlinedAt to not invoke def_use_mgr (#4939)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add initial SPV_EXT_mesh_shader validation (#4924)
+  * spirv-opt: Remove unused folding rule (#4942)
+  * build: Fix BUILD.gn build error (#4948)
+
+  [ Shahbaz Youssefi ]
+  * spirv-val: Consistently quote ids in messages (#4950)
+  * spirv-val: Add an option to use friendly names or not (#4951)
+  * spirv-val: Use ostringstream in id validation tests (#4956)
+
+  [ Kévin Petit ]
+  * spirv-val: Add SPV_ARM_core_builtins validation (#4958)
+
+  [ gmitrano-unity ]
+  * Support Narrow Types in BitCast Folding Rule (#4941)
+
+  [ Kévin Petit ]
+  * Update SPIRV-Headers revision (#4962)
+
+  [ Diego Novillo ]
+  * Roll external/effcee/ ddf5e2bb9..35912e1b7 (1 commit)
+  * Roll external/googletest/ 548b13dc3..d9bb8412d (78 commits)
+  * Roll external/re2/ 5723bb895..d2836d1b1 (11 commits)
+  * Roll external/spirv-headers/ 4bd8fc0c8..85a1ed200 (4 commits)
+  * Update CHANGES
+  * Finalize SPIRV-Tools v2022.4
+
+ -- john <john@odin>  Tue, 18 Oct 2022 10:16:16 -0600
+
 spirv-tools (2022.2+71~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ Shahbaz Youssefi ]
