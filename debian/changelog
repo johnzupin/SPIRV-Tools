@@ -1,3 +1,87 @@
+spirv-tools (2022.4+1.3.236.0~rc1-1lunarg20.04-1) focal; urgency=medium
+
+  [ Diego Novillo ]
+  * Start SPIRV-Tools v2022.5
+
+  [ Spencer Fricke ]
+  * spirv-val: Add remaining Component decoration validation (#4966)
+
+  [ John Zupin ]
+  * packaging: update control file for spirv-headers version change
+
+  [ Spencer Fricke ]
+  * spirv-val: Improve PR 4831 error message (#4968)
+  * spirv-val: Add OpPtrAccessChain Base checks (#4965)
+
+  [ alan-baker ]
+  * Prevent null pointer from being dereferenced (#4971)
+
+  [ Nathan Gauër ]
+  * test
+  * Revert "test" (#4974)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label new Vulkan OpPtrAccessChain VUs (#4975)
+
+  [ alan-baker ]
+  * Only validate full layout in Vulkan environments (#4972)
+  * Prevent eliminating case constructs in block merging (#4976)
+
+  [ Greg Fischer ]
+  * Add passes to eliminate dead output stores (#4970)
+
+  [ alan-baker ]
+  * Switch SPIRV-Tools to use spirv.hpp11 internally (#4981)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add VUID label for 07703 (#4980)
+  * spirv-opt: Add const folding for CompositeInsert (#4943)
+
+  [ Greg Fischer ]
+  * Add pass to eliminate dead output components (#4982)
+
+  [ alan-baker ]
+  * Fix macos kokoro builds (#4985)
+
+  [ Spencer Fricke ]
+  * spirv-val: Multiple interface var with same SC (#4969)
+
+  [ Jeremy Gebben ]
+  * Instrument: Change output buffer offset definitions (#4961)
+
+  [ Shahbaz Youssefi ]
+  * Use Python3 for presubmit (#4986)
+
+  [ Greg Fischer ]
+  * Split EliminateDeadInputComponents into safe and unsafe versions. (#4984)
+
+  [ Nathan Gauër ]
+  * clean: constexpr-ify and unify anon namespace use (#4991)
+
+  [ Greg Fischer ]
+  * Add support for tesc, tese and geom to EliminateDead*Components (#4990)
+  * Add option to ADCE to remove output variables from interface. (#4994)
+
+  [ Spencer Fricke ]
+  * spirv-opt: Handle null CompositeInsert (#4998)
+
+  [ alelenv ]
+  * Add validation support for SPV_NV_shader_invocation_reorder. (#4979)
+
+  [ Biswapriyo Nath ]
+  * Fix missing declaration of std::numeric_limits (#5002)
+
+  [ Greg Fischer ]
+  * Change EliminateDeadInputComponentsPass to EliminateDeadIOComponentsPass (#4997)
+
+  [ Brian Osman ]
+  * Update BUILD.gn with recently added file (#5004)
+
+  [ Cassandra Beckley ]
+  * Revert "spirv-val: Multiple interface var with same SC (#4969)" (#5009)
+
+ -- john <john@odin>  Thu, 08 Dec 2022 10:31:47 -0700
+
 spirv-tools (2022.4+1.3.231.0~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ Spencer Fricke ]
