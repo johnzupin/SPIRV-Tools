@@ -1,0 +1,20 @@
+name: 'Build SPIRV-Tools Package for Ubuntu Focal'
+description: 'Build the SPIRV-Tools Package'
+inputs:
+  repo:
+    description: 'What repo to clone the SPIRV-Tools package'
+    required: true
+    default: 'main'
+  ref:
+    description: 'What ref to build the SPIRV-Tools package'
+    required: true
+    default: 'main'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo }}
+    - ${{ inputs.ref }}

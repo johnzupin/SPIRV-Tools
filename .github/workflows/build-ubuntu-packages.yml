@@ -1,0 +1,88 @@
+name: build-ubuntu-packages
+run-name: Build Debian style packages for Ubuntu
+on:
+  push:
+  workflow_call:
+    inputs:
+      spirv_headers:
+        required: false
+        type: string
+        default: '{"repo":"","ref":""}'
+      spirv_tools:
+        required: true
+        type: string
+        default: '{"repo":"johnzupin/SPIRV-Tools","ref":"ubuntu/focal"}'
+        description: "A json object that defines repo and ref. Ex) {repo:johnzupin/SPIRV-Tools, ref:ubuntu/focal}"
+  workflow_dispatch:
+    inputs:
+      spirv_headers:
+        required: false
+        type: string
+        default: '{"repo":"","ref":""}'
+      spirv_tools:
+        required: true
+        type: string
+        default: '{"repo":"johnzupin/SPIRV-Tools","ref":"ubuntu/focal"}'
+        description: "A json object that defines repo and ref. Ex) {repo:johnzupin/SPIRV-Tools, ref:ubuntu/focal}"
+jobs:
+  get-spirv-headers-ref:
+    runs-on: ubuntu-latest
+    outputs:
+      spirv-headers-repo: ${{ steps.deps-refs.outputs.SPV_HEADERS_REPO }}
+      spirv-headers-ref: ${{ steps.deps-refs.outputs.SPV_HEADERS_REF }}
+      spirv-tools-repo: ${{ steps.deps-refs.outputs.SPV_TOOLS_REPO }}
+      spirv-tools-ref: ${{ steps.deps-refs.outputs.SPV_TOOLS_REF }}
+    steps:
+      - name: "Inputs have been specified - Set repo/ref variables with specified input"
+        if: ${{ inputs.spirv_tools != '' }}
+        run: |
+          echo SPV_HEADERS_REPO="${{ fromJSON(inputs.spirv_headers).repo }}" >> "$GITHUB_ENV"
+          echo SPV_HEADERS_REF="${{ fromJSON(inputs.spirv_headers).ref }}" >> "$GITHUB_ENV"
+          echo SPV_TOOLS_REPO="${{ fromJSON(inputs.spirv_tools).repo }}" >> "$GITHUB_ENV"
+          echo SPV_TOOLS_REF="${{ fromJSON(inputs.spirv_tools).ref }}" >> "$GITHUB_ENV"
+      - name: "No inputs specified - Checkout repository to get dependency versions from repository DEPS file" 
+        if: ${{ inputs.spirv_tools == '' }}
+        uses: actions/checkout@v3
+      - name: "No input specified - Parse the DEPS file to get the dependency refs for building package dependencies"
+        if: ${{ inputs.spirv_tools == '' }}
+        run: |
+          # WARNING: the spirv-headers repo is hardcoded to johnzupin org, this needs to change to Khronos when /debian gets merged
+          echo SPV_HEADERS_REPO="johnzupin/SPIRV-Headers" >> "$GITHUB_ENV" 
+          echo SPV_HEADERS_REF=`grep -m1 'spirv_headers_revision' DEPS | tr -d \ \', | cut -d: -f2` >> "$GITHUB_ENV"
+          echo SPV_TOOLS_REPO="$GITHUB_REPOSITORY" >> "$GITHUB_ENV"
+          echo SPV_TOOLS_REF="$GITHUB_REF_NAME" >> "$GITHUB_ENV"
+      - id: deps-refs
+        run: |
+          echo SPV_HEADERS_REPO="${{ env.SPV_HEADERS_REPO }}" >> "$GITHUB_OUTPUT"
+          echo SPV_HEADERS_REF="${{ env.SPV_HEADERS_REF }}" >> "$GITHUB_OUTPUT"
+          echo SPV_TOOLS_REPO="${{ env.SPV_TOOLS_REPO }}" >> "$GITHUB_OUTPUT"
+          echo SPV_TOOLS_REF="${{ env.SPV_TOOLS_REF }}" >> "$GITHUB_OUTPUT"
+
+  build-spirv-tools-amd64-focal-package:
+    needs: [ "get-spirv-headers-ref" ]
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: 'johnzupin/SPIRV-Headers'
+          ref: 'zupin_js_action_build_focal_deb'
+          path: 'SPIRV-Headers'
+      - uses: ./SPIRV-Headers/.github/actions/build-spirv-headers-package
+        with:
+          repo: "johnzupin/SPIRV-Headers"
+          ref: "zupin_js_action_build_focal_deb"
+          # repo: "${{needs.get-spirv-headers-ref.outputs.spirv-headers-repo}}"
+          # ref: "${{needs.get-spirv-headers-ref.outputs.spirv-headers-ref}}"
+      - run: "ls -l $GITHUB_WORKSPACE"
+      - run: "dpkg -i $GITHUB_WORKSPACE/spirv-headers*20.04*_all.deb"
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build-spirv-tools-package
+        with:
+          repo: "${{needs.get-spirv-headers-ref.outputs.spirv-tools-repo}}"
+          ref: "${{needs.get-spirv-headers-ref.outputs.spirv-tools-ref}}"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: "spirv-tools-focal-package"
+          path: "${{ github.workspace }}/spirv-tools*20.04*amd64.deb"
