@@ -1,3 +1,176 @@
+spirv-tools (2023.2+1.3.250.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Nathan Gauër ]
+  * Change default permissions for workflows (#5149)
+  * Add spirv-dump tool (#5146)
+  * Add workflow for github releases. (#5145)
+
+  [ dependabot[bot] ]
+  * build(deps): bump y18n from 4.0.0 to 4.0.3 in /tools/sva (#5155)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 038e392eb..391ce627d (1 commit) (#5153)
+  * Revert "Add workflow for github releases. (#5145)" (#5156)
+
+  [ Alan Zhao ]
+  * Explicitly #include <utility> in spirv_target_env.cpp (#5159)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label new Vulkan VUID 07951 (#5154)
+
+  [ Kévin Petit ]
+  * build: cmake: support passing a custom source folder for GoogleTest (#5157)
+
+  [ Nathan Gauër ]
+  * git: add release workflow (#5158)
+  * ci: fix dependency updater bot (#5165)
+
+  [ github-actions[bot] ]
+  * roll deps (#5166)
+  * build: set std=c++17 for BUILD.gn (#5162)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 471087fbf..fa8720982 (2 commits) (#5167)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ fa8720982..974e18ee6 (2 commits) (#5168)
+
+  [ davidroygsu ]
+  * Include stdint.h (#5164)
+
+  [ Nathan Gauër ]
+  * Implement source extraction logic for spirv-objdump (#5150)
+
+  [ alan-baker ]
+  * Update SPIRV-Headers deps (#5170)
+
+  [ github-actions[bot] ]
+  * roll deps (#5172)
+
+  [ Jeremy Hayes ]
+  * Ignore NonSemanticInstructions (#5171)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 6f01e3dc1..e9fb5c7ba (2 commits) (#5175)
+
+  [ Steven Perron ]
+  * Do not remove control barrier after spv1.3 (#5174)
+
+  [ Spencer Fricke ]
+  * spirv-opt: Remove unused includes and code (#5177)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ e9fb5c7ba..88af49efa (1 commit) (#5179)
+  * spirv-val: Remove unused includes and code (#5176)
+
+  [ Steven Perron ]
+  * Add Vulkan memory model to allow lists (#5173)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 88af49efa..ca0d46e95 (4 commits) (#5180)
+  * Remove non-ascii char from comments. (#5182)
+  * Add missing header guard (#5181)
+
+  [ Nathan Gauër ]
+  * kokoro: always chown files (#5186)
+
+  [ github-actions[bot] ]
+  * roll deps (#5185)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ b5fd99bbd..7ee260c54 (1 commit) (#5187)
+
+  [ LDeakin ]
+  * Fix LICMPass (#5087)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 7ee260c54..057b4e904 (1 commit) (#5190)
+
+  [ Steven Perron ]
+  * Remove use of deprecated std::aligned_storage (#5183)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 057b4e904..8fa9461cc (2 commits) (#5192)
+  * Update protobuf to v21.12 (#5189)
+
+  [ Corentin Wallez ]
+  * Add default case for spv::Dim for TileImageEXT (#5194)
+
+  [ James Price ]
+  * Fix vector OpConstantComposite type validation (#5191)
+
+  [ janharaldfredriksen-arm ]
+  * Add support for SPV_EXT_shader_tile_image (#5188)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 8fa9461cc..12a5852e4 (1 commit) (#5193)
+
+  [ alan-baker ]
+  * Remove dead code (#5195)
+
+  [ Ben Clayton ]
+  * opt: Fix null deref in OpMatrixTimesVector and OpVectorTimesMatrix (#5199)
+
+  [ Steven Perron ]
+  * Do not define GOOGLE_PROTOBUF_INTERNAL_DONATE_STEAL_INLINE if it is already defined. (#5200)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 12a5852e4..783d00fd1 (9 commits) (#5198)
+
+  [ Jeremy Gebben ]
+  * instrument: Change descriptor state storage format (#5178)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 783d00fd1..ccdeec888 (1 commit) (#5203)
+
+  [ ewerness-nv ]
+  * Update spirv_headers to include SPV_KHR_ray_tracing_position_fetch (#5205)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ dea0484e4..0bdaac5a1 (1 commit) (#5206)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 0bdaac5a1..797b0ad2a (1 commit) (#5207)
+
+  [ Jeremy Gebben ]
+  * instrument: Add set and binding to bindless error records (#5204)
+
+  [ github-actions[bot] ]
+  * roll deps (#5209)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ f345b2ca6..a3580180d (2 commits) (#5210)
+
+  [ Sruthik P ]
+  * spirv-tools: Add support for QNX (#5211)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 7f1d2f415..268a06176 (2 commits) (#5214)
+
+  [ Steven Perron ]
+  * Update the contributing guidelines (#5212)
+  * Apply scalar replacement on vars with Pointer decorations (#5208)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ a3580180d..bc860af08 (1 commit) (#5216)
+
+  [ Chris Oattes ]
+  * Don't convert struct members to half (#5201)
+
+  [ Steven Perron ]
+  * Run ADCE when the printf extension is used. (#5215)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label Interface Location/Component VUIDs (#5221)
+
+  [ Kévin Petit ]
+  * Improve an error message in the assembler (#5219)
+
+  [ Nathan Gauër ]
+  * Prepare release 2023.3 (#5222)
+
+ -- john <john@odin>  Tue, 23 May 2023 11:21:06 -0600
+
 spirv-tools (2023.2+1.3.243.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Diego Novillo ]
