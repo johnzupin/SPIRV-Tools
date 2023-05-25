@@ -1,3 +1,10 @@
+spirv-tools (2023.2+1.3.250.0~rc2-1lunarg22.04-1) jammy; urgency=medium
+
+  [ John Zupin ]
+  * packaging: debian: update patch to not install objdump
+
+ -- john <john@odin>  Thu, 25 May 2023 14:33:54 -0600
+
 spirv-tools (2023.2+1.3.250.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Nathan Gauër ]
