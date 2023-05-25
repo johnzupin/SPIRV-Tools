@@ -77,7 +77,7 @@ if (NOT ${SPIRV_SKIP_EXECUTABLES})
                       LIBS ${SPIRV_TOOLS_FULL_VISIBILITY})
     target_include_directories(spirv-objdump PRIVATE ${spirv-tools_SOURCE_DIR}
                                                      ${SPIRV_HEADER_INCLUDE_DIR})
-    set(SPIRV_INSTALL_TARGETS ${SPIRV_INSTALL_TARGETS} spirv-objdump)
+    #set(SPIRV_INSTALL_TARGETS ${SPIRV_INSTALL_TARGETS} spirv-objdump)
   endif()
 
   if(NOT (${CMAKE_SYSTEM_NAME} STREQUAL "iOS"))
