@@ -1,3 +1,284 @@
+spirv-tools (2023.4+1.3.261.0~rc1-1lunarg20.04-1) focal; urgency=medium
+
+  [ Steven Perron ]
+  * Disable RE2 autoroll (#5234)
+
+  [ Steve Urquhart ]
+  * Remove const zero image operands (#5232)
+
+  [ Steven Perron ]
+  * Have the macos bazel build us git-sync-deps (#5235)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ bc860af08..bb2941fcc (1 commit) (#5220)
+
+  [ Pankaj Mistry ]
+  * Add SPV_NV_bindless_texture to spirv optimizations (#5231)
+
+  [ Jim Blandy ]
+  * diff: Don't give up entry point matching too early. (#5224)
+
+  [ Steven Perron ]
+  * Add Abseil as a dep and update RE2 (#5236)
+  * Check if const is zero before getting components. (#5217)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ bdbfd019b..69155b22b (1 commit) (#5238)
+  * Revert "Disable RE2 autoroll (#5234)" (#5239)
+  * Add Abseil dep to the README (#5242)
+
+  [ Spencer Fricke ]
+  * spirv-val: Remove VUID from 1.3.251 spec (#5244)
+
+  [ Steven Perron ]
+  * Update deps in sva (#5246)
+  * Checkout abseil in the smoketest (#5248)
+
+  [ alan-baker ]
+  * Error for invalid location type (#5249)
+
+  [ Steven Perron ]
+  * Add c++ version to .bazelrc (#5247)
+
+  [ Jim Blandy ]
+  * Fix pairing of function parameters. (#5225)
+
+  [ Steven Perron ]
+  * Fix broken link in README (#5250)
+
+  [ alan-baker ]
+  * Allow physical storage buffer pointer in IO (#5251)
+
+  [ github-actions[bot] ]
+  * roll deps (#5243)
+
+  [ David Neto ]
+  * Increase tested Android API level (#5253)
+
+  [ Steven Perron ]
+  * Add folding rule for OpTranspose (#5241)
+
+  [ alan-baker ]
+  * Allow OpTypeBool in UniformConstant (#5237)
+
+  [ Steven Perron ]
+  * Use windows 2019 to workaround bazel issue (#5261)
+
+  [ github-actions[bot] ]
+  * roll deps (#5263)
+
+  [ Jim Blandy ]
+  * spirv-diff: Properly match SPV_KHR_ray_query types. (#5259)
+  * spirv-diff: Leave undefined ids unpaired. (#5262)
+
+  [ Shahbaz Youssefi ]
+  * spirv-diff: Update test expectations (#5264)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 334704df2..65cfeca1a (1 commit) (#5265)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 65cfeca1a..e9078161e (1 commit) (#5267)
+
+  [ Eugene Kozlov ]
+  * Expose preserve_interface in Optimizer::Register*Passes. (#5268)
+
+  [ Jeremy Gebben ]
+  * instrument: Fix buffer address length calculations (#5257)
+
+  [ github-actions[bot] ]
+  * roll deps (#5273)
+
+  [ Steven Perron ]
+  * Fold negation of integer vectors (#5269)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 18fa6a4db..9b12f749f (1 commit) (#5276)
+
+  [ Laura Hermanns ]
+  * Enable vector constant folding (#4913) (#5272)
+
+  [ Juan Ramos ]
+  * cmake: Use modern Python3 CMake support (#5277)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 9b12f749f..fb11778f4 (4 commits) (#5279)
+
+  [ John Cater ]
+  * Migrate `exec_tools` back to `tools`. (#5280)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ fb11778f4..af39146b4 (1 commit) (#5285)
+
+  [ Juan Ramos ]
+  * cmake: Remove unused SPIRV-Headers variables (#5284)
+
+  [ Jeremy Gebben ]
+  * instrument: Combine descriptor length and init state checking (#5274)
+
+  [ Steven Perron ]
+  * Have effcee add abseil subdirectory (#5281)
+
+  [ archimedus ]
+  * SPV_KHR_cooperative_matrix (#5286)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ af39146b4..ec4fed932 (1 commit) (#5287)
+
+  [ Volodymyr B ]
+  * Update CMakeLists.txt (#5288)
+
+  [ alan-baker ]
+  * Validate layouts for PhysicalStorageBuffer pointers (#5291)
+
+  [ Nathan Gauër ]
+  * fix ndk build standard to c++17 (#5290)
+
+  [ Volodymyr B ]
+  * Update CMakeLists.txt (#5293)
+
+  [ Nathan Gauër ]
+  * build: remove last references of c++11 (#5295)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ ec4fed932..8e32de89c (2 commits) (#5294)
+
+  [ github-actions[bot] ]
+  * roll deps (#5297)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 687c58994..251e72039 (1 commit) (#5299)
+
+  [ github-actions[bot] ]
+  * roll deps (#5300)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 2d39b703d..1c1ffbe3c (1 commit) (#5304)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label SPV_KHR_cooperative_matrix VUID (#5301)
+
+  [ Nathan Gauër ]
+  * NFC: rewrite EnumSet to handle larger enums. (#5289)
+
+  [ David Neto ]
+  * Treat spir-v.xml as utf-8 (#5306)
+
+  [ John Zupin ]
+  * packaging: ubuntu: update to add -DSPIRV_SKIP_TESTS=ON cmake option
+
+  [ Steven Perron ]
+  * Use android ndk r25 (#5309)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ a57a1d646..e66463312 (1 commit) (#5313)
+
+  [ alan-baker ]
+  * Validate GroupNonUniform instructions (#5296)
+
+  [ David Neto ]
+  * Update README to say Android NDK r25c is required (#5312)
+
+  [ Spencer Fricke ]
+  * source: Give better message if using new Source Language (#5314)
+
+  [ Nathan Gauër ]
+  * enumset: STL-ize container (#5311)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 4a1a299b2..cc366710b (1 commit) (#5317)
+
+  [ Jeremy Gebben ]
+  * instrument: Cast gl_VertexIndex and InstanceIndex to uint (#5319)
+
+  [ Nathan Gauër ]
+  * NFC: fix missing comments on functions (#5318)
+  * enumset: fix bug in the new iterator class (#5321)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ d0006a393..f1ba373ef (2 commits) (#5320)
+  * NFC: replace EnumSet::ForEach with range-based-for (#5322)
+  * NFC: makes the FeatureManager immutable for users (#5329)
+
+  [ asudarsa ]
+  * Add support for LiteralFloat type (#5323)
+
+  [ ncesario-lunarg ]
+  * [spirv-opt] Handle OpFunction in GetPtr (#5316)
+
+  [ Joyce ]
+  * Create SECURITY.md (#5325)
+
+  [ Diego Novillo ]
+  * Prepare release v2023.4 (#5330)
+
+  [ Mateusz Przybylski ]
+  * Add python3 requirement for the script (#5326)
+
+  [ Nathan Gauër ]
+  * NFC: fix missing algorithm include in enumset file (#5334)
+
+  [ David Neto ]
+  * Set cmake_policy CMP0128 (#5341)
+
+  [ Nathan Gauër ]
+  * kokoro: rename glslang (#5339)
+
+  [ David Neto ]
+  * Fix link flags for Clang-based MinGW cross compile (#5342)
+  * Add /bigobj to test_opt for VS 2017 (#5336)
+
+  [ Nathan Gauër ]
+  * opt: change Get* functions to return const& (#5331)
+
+  [ dependabot[bot] ]
+  * Bump word-wrap from 1.2.3 to 1.2.4 in /tools/sva (#5343)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ cc366710b..d66ce5851 (2 commits) (#5337)
+  * enumset: add iterator based constructor/insert (#5344)
+
+  [ Steven Perron ]
+  * Do not crash when folding 16-bit OpFDiv (#5338)
+
+  [ github-actions[bot] ]
+  * roll deps (#5345)
+
+  [ Nathan Gauër ]
+  * opt: add capability trimming pass (not default). (#5278)
+
+  [ ncesario-lunarg ]
+  * opt: Fix incorrect half float conversion (#5349)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 01e18376e..40412d851 (1 commit) (#5347)
+
+  [ Nathan Gauër ]
+  * build: fix missing files in BUILD.gn (#5351)
+
+  [ Steven Perron ]
+  * Add SPV_EXT_shader_atomic_float_add to allow lists (#5348)
+
+  [ github-actions[bot] ]
+  * roll deps (#5352)
+
+  [ Jeremy Gebben ]
+  * instrument: Reduce number of inst_bindless_stream_write_6 calls (#5327)
+
+  [ Nathan Gauër ]
+  * opt: fix missing CreateTrimCapabilitiesPass definition (#5353)
+
+  [ David Neto ]
+  * Update SPIRV-Headers; test some coop matrix enums (#5361)
+
+  [ Natalie Chouinard ]
+  * Use absolute path to depot_tools (#5360)
+
+  [ Nathan Gauër ]
+  * Prepare release for v2023.4.rc2 (#5362)
+
+ -- john <john@odin>  Tue, 15 Aug 2023 14:26:25 -0600
+
 spirv-tools (2023.2+1.3.250.0~rc2-1lunarg20.04-1) focal; urgency=medium
 
   [ John Zupin ]
