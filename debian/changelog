@@ -1,3 +1,259 @@
+spirv-tools (2023.5+1.3.273.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Sven van Haastregt ]
+  * docs: update references to `main` branch (#5363)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 6f6ab4212..e7fd109b5 (2 commits) (#5356)
+
+  [ Nathan Gauër ]
+  * opt: fix StorageInputOutput16 trimming. (#5359)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 46db91ef6..89b25572d (1 commit) (#5365)
+  * opt: add StoragePushConstant16 to trim pass (#5366)
+  * opt: add StorageUniformBufferBlock16 to trim pass (#5367)
+
+  [ David Neto ]
+  * Move token version/cap/ext checks from parsing to validation (#5370)
+
+  [ Nathan Gauër ]
+  * enable StorageUniform16 (#5371)
+
+  [ Ryan Harrison ]
+  * Fix -Wunreachable-code-loop-increment warning (#5373)
+
+  [ github-actions[bot] ]
+  * roll deps (#5374)
+
+  [ Viktoria Maximova ]
+  * Support 2 Intel extensions (#5357)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 9dc7ae7b5..6148386f0 (3 commits) (#5379)
+
+  [ Nathan Gauër ]
+  * opt: add bitmask support for capability trimming (#5372)
+
+  [ Steven Perron ]
+  * Fix failing action when PR is already open. (#5380)
+
+  [ Wooyoung Kim ]
+  * SPV_QCOM_image_processing support (#5223)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 7e33b6a1c..987e22561 (5 commits) (#5381)
+
+  [ github-actions[bot] ]
+  * roll deps (#5382)
+
+  [ Jeremy Gebben ]
+  * linker: Add --use-highest-version option (#5376)
+  * opt: Add SwitchDescriptorSetPass (#5375)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 9fce54804..61332bd7e (2 commits) (#5383)
+
+  [ github-actions[bot] ]
+  * roll deps (#5384)
+
+  [ github-actions[bot] ]
+  * roll deps (#5386)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 460ae9826..8a6feabf0 (1 commit) (#5388)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 73031bbc0..523f9b097 (1 commit) (#5389)
+
+  [ Joyce ]
+  * Enable OpenSSF Scorecard and Badge (#5377)
+
+  [ Mike Gorchak ]
+  * QNX has support for ANSI ESC codes, default terminal is QANSI. (#5387)
+
+  [ Cassandra Beckley ]
+  * opt: add FragmentShader*InterlockEXT to capability trim pass (#5390)
+
+  [ Nathan Gauër ]
+  * NFC: rename tests using capability as prefix (#5396)
+  * opt: add Int64 capability to trim pass (#5398)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 523f9b097..e0077036c (2 commits) (#5391)
+  * opt: add raytracing/rayquery to trim pass (#5397)
+
+  [ Cassandra Beckley ]
+  * Add SPV_EXT_fragment_shader_interlock to allow lists (#5393)
+
+  [ Nathan Gauër ]
+  * opt: add ImageMSArray capability to trim pass. (#5395)
+
+  [ Steven Perron ]
+  * Fix `AddMemberDecoration` variable names. (#5399)
+  * Add SPV_KHR_physical_storage_buffer to allowlists (#5402)
+
+  [ Nathan Gauër ]
+  * val: re-add ImageMSArray validation (#5394)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ e0077036c..a807e8a3a (6 commits) (#5401)
+
+  [ Cassandra Beckley ]
+  * Make sure that fragment shader interlock instructions are not removed by DCE (#5400)
+
+  [ André Cruz ]
+  * Check for git repository before git commands (#5403)
+
+  [ Steven Perron ]
+  * Change autoroll pr review id (#5404)
+
+  [ David Neto ]
+  * Update SPIRV-Headers, add cache control operand kinds (#5406)
+
+  [ Steven Perron ]
+  * roll deps (#5408)
+
+  [ Jeremy Gebben ]
+  * instrument: Use Import linkage for instrumentation functions (#5355)
+
+  [ Steven Perron ]
+  * Remove reviewer from autoroller (#5414)
+
+  [ github-actions[bot] ]
+  * roll deps (#5415)
+
+  [ Cassandra Beckley ]
+  * Add a new legalization pass to dedupe invocation interlock instructions (#5409)
+  * Update BUILD.gn to include header for new pass (#5421)
+
+  [ Jeremy Gebben ]
+  * instrument: Ensure linking works even of nothing is changed (#5419)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ e47544ad3..beb552fb4 (2 commits) (#5424)
+
+  [ Cassandra Beckley ]
+  * opt: add Float64 capability to trim pass (#5428)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 79743b899..e867c0663 (2 commits) (#5427)
+
+  [ dependabot[bot] ]
+  * build(deps): bump get-func-name from 2.0.0 to 2.0.2 in /tools/sva (#5418)
+
+  [ Joyce ]
+  * Hash pin workflows and config dependabot (#5412)
+
+  [ github-actions[bot] ]
+  * roll deps (#5432)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 35bb195de..b673de358 (2 commits) (#5433)
+
+  [ Nathan Gauër ]
+  * Prepare release v2023.5.rc1 (#5423)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ b673de358..ece4cecab (2 commits) (#5437)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ e867c0663..4183b260f (1 commit) (#5439)
+
+  [ Steven Perron ]
+  * Add ComputeDerivativeGroup*NV capabilities to trim capabilities pass. (#5430)
+
+  [ Fumitoshi Ukai ]
+  * update_build_version.py produce deterministic header. (#5426)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 4 updates (#5445)
+
+  [ Cassandra Beckley ]
+  * opt: support 64-bit OpAccessChain index in FixStorageClass (#5446)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 2dd1c1319..829c19901 (1 commit) (#5444)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 928a015e6..601d9ea3e (1 commit) (#5448)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 116b7e552..518387203 (1 commit) (#5450)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 601d9ea3e..a0b3bc60c (1 commit) (#5453)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add WorkgroupMemoryExplicitLayoutKHR check for Block (#5461)
+
+  [ Steven Perron ]
+  * Remove references to __FILE__ (#5462)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 518387203..5b7fd63d6 (1 commit) (#5454)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5457)
+  * Fix array size calculation (#5463)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 24d460a9d..974f44c8d (4 commits) (#5470)
+
+  [ Natalie Chouinard ]
+  * Support missing git in update_build_version.py (#5473)
+
+  [ sethp ]
+  * fix(build): git describe all tagged versions (#5447)
+
+  [ Nathan Gauër ]
+  * opt: add StorageImageReadWithoutFormat to cap trim (#5475)
+  * opt: add PhysicalStorageBufferAddresses to trim (#5476)
+
+  [ Spencer Fricke ]
+  * Add comment to --inst-debug-printf option (#5466)
+
+  [ ncesario-lunarg ]
+  * Fix python warning seen on Fedora 39 (#5474)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5478)
+
+  [ Jesse Natalie ]
+  * Flush stdout before changing mode back to text (#5477)
+
+  [ ChristianReinbold ]
+  * Fix nullptr argument in MarkInsertChain (#5465)
+
+  [ Sajjad Mirza ]
+  * spirv-val: Loosen restriction on base type of DebugTypePointer and DebugTypeQualifier (#5479)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 38f39dae5..cca08c63c (2 commits) (#5480)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5484)
+
+  [ Juan Ramos ]
+  * Fix iOS / Android CMake builds (#5482)
+  * Add iOS build to CI (#5490)
+
+  [ David Neto ]
+  * std::system requires include of <cstdlib> (#5486)
+  * Remove uses of std::system(nullptr) (#5494)
+
+  [ ncesario-lunarg ]
+  * Do not crash when tryingto fold unsupported spec constant (#5496)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5498)
+
+  [ Jeremy Gebben ]
+  * printf: Remove stage specific info (#5495)
+  * instrument: Fix handling of gl_InvocationID (#5493)
+
+ -- john <john@odin>  Wed, 13 Dec 2023 11:49:27 -0700
+
 spirv-tools (2023.4+1.3.261.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Steven Perron ]
