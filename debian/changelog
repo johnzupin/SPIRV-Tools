@@ -1,3 +1,150 @@
+spirv-tools (2023.6+1.3.278.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ technateNG ]
+  * Fix(cmake): CMake doesn't find system installed SPIRV-Headers (#5422)
+
+  [ Steven Perron ]
+  * Revert "Fix(cmake): CMake doesn't find system installed SPIRV-Headers (#5422)" (#5517)
+
+  [ Nathan Gauër ]
+  * opt: add Int16 and Float16 to capability trim pass (#5519)
+
+  [ Steven Perron ]
+  * Remove unnecessary debug code (#5523)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ b10fad38c..76bb2afb8 (1 commit) (#5485)
+  * Add preserver-interface option to spirv-opt (#5524)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 4 updates (#5531)
+
+  [ Spencer Fricke ]
+  * spirv-val: Re-enable OpControlBarrier VU (#5527)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ c042630ed..32c181e0a (1 commit) (#5532)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 3 updates (#5537)
+
+  [ Nathan Gauër ]
+  * workflow: add vulkan-sdk tags as release tags (#5518)
+
+  [ David Neto ]
+  * Use python3 explicitly. (#5540)
+
+  [ alan-baker ]
+  * Add tooling support for SPV_KHR_maximal_reconvergence (#5542)
+  * Add support for SPV_KHR_float_controls2 (#5543)
+
+  [ Natalie Chouinard ]
+  * opt: Add VulkanMemoryModelDeviceScope to trim (#5544)
+
+  [ alan-baker ]
+  * Add modify-maximal-reconvergence to spirv-opt help (#5546)
+
+  [ ruiminzhao ]
+  * SPV_KHR_quad_control (#5547)
+
+  [ Natalie Chouinard ]
+  * opt: Add TrimCapabilities pass to spirv-opt tool (#5545)
+
+  [ Scott Todd ]
+  * Skip entire test/ folder if SPIRV_SKIP_TESTS is set. (#5548)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 264e71e88..826ad10e5 (1 commit) (#5538)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5549)
+
+  [ Nathan Gauër ]
+  * opt: add SPV_EXT_mesh_shader to opt allowlist (#5551)
+
+  [ Natalie Chouinard ]
+  * [NFC] Remove unused code (#5554)
+  * opt: Add OpEntryPoint to DescriptorScalarReplacement pass (#5553)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add Mesh Primitive Built-In validaiton (#5529)
+
+  [ Ben Doherty ]
+  * spirv-opt: Fix OpCompositeExtract relaxation with struct operands (#5536)
+
+  [ github-actions[bot] ]
+  * roll deps (#5550)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 283636ffb..ab7c5918b (2 commits) (#5555)
+
+  [ Nathan Gauër ]
+  * opt: prevent meld to merge block with MaximalReconvergence (#5557)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 456574145..48729681a (1 commit) (#5559)
+
+  [ Steven Perron ]
+  * [NFC] Refactor code to fold instruction in fold tests. (#5558)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 3 updates (#5560)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 48729681a..64be1c79f (1 commit) (#5563)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5564)
+
+  [ github-actions[bot] ]
+  * roll deps (#5566)
+  * Fold 64-bit int operations (#5561)
+
+  [ Spencer Fricke ]
+  * spirv-val: Validate PhysicalStorageBuffer Stage Interface (#5539)
+
+  [ Steven Perron ]
+  * [OPT] Use new instruction folder for for all opcodes in spec consti folding (#5569)
+
+  [ Ben Ashbaugh ]
+  * update image enum tests to remove Kernel capability (#5562)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ e77d03080..d3c2a6fa9 (1 commit) (#5574)
+
+  [ Steven Perron ]
+  * [OPT] Identify arrays with unknown length in copy prop arrays (#5570)
+
+  [ Spencer Fricke ]
+  * spirv-val: Multiple interface var with same SC (#5528)
+  * spirv-val: Revert Validate PhysicalStorageBuffer Stage Interface (#5575)
+
+  [ Steven Perron ]
+  * [OPT] Add removed unused interface var pass to legalization passes (#5579)
+
+  [ github-actions[bot] ]
+  * roll deps (#5576)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5578)
+
+  [ Jeff Bolz ]
+  * SPV_NV_shader_atomic_fp16_vector (#5581)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5586)
+
+  [ Cassandra Beckley ]
+  * Update WORKSPACE (#5588)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 6eb225cb8..5df0241ea (2 commits) (#5583)
+
+  [ Spencer Fricke ]
+  * spirv-val: Make Constant evaluation consistent (#5587)
+
+ -- john <john@odin>  Wed, 28 Feb 2024 08:52:45 -0700
+
 spirv-tools (2023.6+1.3.275.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Ben Clayton ]
