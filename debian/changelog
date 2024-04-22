@@ -1,3 +1,74 @@
+spirv-tools (2023.6+1.3.282.0~rc1-1lunarg20.04-1) focal; urgency=medium
+
+  [ David Neto ]
+  * kokoro: Update bazel to 7.0.2 for Mac builds (#5606)
+
+  [ Kévin Petit ]
+  * [OPT] Fix handling of analyses rebuild (#5608)
+
+  [ Cassandra Beckley ]
+  * kokoro: Update bazel to 7.0.2 for Linux builds (#5609)
+  * Use bazel 7 and bzlmod (#5601)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5610)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ ed9fc269e..d00d1e937 (2 commits) (#5589)
+
+  [ Romaric Jodin ]
+  * add support for vulkan-shader-profiler external passes (#5512)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ b479e7a3c..c231e6f5b (1 commit) (#5613)
+
+  [ github-actions[bot] ]
+  * roll deps (#5614)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5615)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 8b246ff75..04db24d69 (1 commit) (#5617)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5618)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 04db24d69..7d500c4d7 (1 commit) (#5619)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5621)
+
+  [ Kevin Gibson ]
+  * Minor fix to cmakelists to avoid rerunning command each build (#5620)
+
+  [ github-actions[bot] ]
+  * Roll external/spirv-headers/ 7d500c4d7..4f7b471f1 (1 commit) (#5625)
+
+  [ github-actions[bot] ]
+  * Roll external/re2/ 6598a8ecd..917047f36 (3 commits) (#5626)
+
+  [ Nathan Gauër ]
+  * docs: explain LunarG is the source of truth for releases (#5627)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 1 update (#5634)
+
+  [ Jeremy Hayes ]
+  * Add AliasedPointer decoration (#5635)
+
+  [ Diego Novillo ]
+  * Fix rebuilding types with circular references (#5623). (#5637)
+
+  [ Rodrigo Locatti ]
+  * Validator: Support SPV_NV_raw_access_chains (#5568)
+
+  [ alan-baker ]
+  * Validate duplicate decorations and execution modes (#5641)
+
+ -- john <john@odin>  Mon, 22 Apr 2024 15:54:57 -0600
+
 spirv-tools (2023.6+1.3.280.0~rc1-1lunarg20.04-1) focal; urgency=medium
 
   [ dependabot[bot] ]
