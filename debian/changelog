@@ -1,3 +1,25 @@
+spirv-tools (2023.6+1.3.283.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Spencer Fricke ]
+  * spirv-val: Add Vulkan check for Rect Dim in OpTypeImage (#5644)
+
+  [ Natalie Chouinard ]
+  * opt: add GroupNonUniformPartitionedNV capability to trim pass (#5648)
+
+  [ Wooyoung Kim ]
+  * A fix to support of SPV_QCOM_image_processing2 (#5646)
+
+  [ Sven van Haastregt ]
+  * Add SPIRV_TOOLS_EXPORT to public C++ API (#5591)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 4 updates (#5650)
+
+  [ Cassandra Beckley ]
+  * Prepare release v2024.2 (#5651)
+
+ -- john <john@odin>  Tue, 07 May 2024 08:10:50 -0600
+
 spirv-tools (2023.6+1.3.282.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ David Neto ]
