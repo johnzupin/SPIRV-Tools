@@ -1,3 +1,96 @@
+spirv-tools (2024.3+1.3.290.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Spencer Fricke ]
+  * spirv-val: Separate Location check for tess patch (#5654)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 3 updates (#5656)
+
+  [ Jeremy Gebben ]
+  * opt: Remove bindless and buff addr instrumentation passes (#5657)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Validate MemoryAccessMask of OpCooperativeMatrixStoreKHR (#5668)
+
+  [ alan-baker ]
+  * Improve matrix layout validation (#5662)
+
+  [ dependabot[bot] ]
+  * --- (#5679)
+
+  [ Zheng Shaokun ]
+  * Use raw string to avoid unintended escapes in regex (#5676)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Consider target env for OpReadClockKHR scope (#5681)
+
+  [ Steven Perron ]
+  * Add abseil to the autoroller (#5680)
+  * Do not fold mul and adds to generate fmas (#5682)
+
+  [ github-actions[bot] ]
+  * Roll deps
+
+  [ Spencer Fricke ]
+  * spirv-val: Add Duplicate EntryPoint Builtin check (#5678)
+
+  [ Kévin Petit ]
+  * Basic support for SPV_EXT_replicated_composites (#5690)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Fix indentation of --version output (#5686)
+
+  [ Steven Perron ]
+  * Avoid use of type manager in extact->construct folding (#5684)
+  * Remove implicit call to GetId in ConvertToSampledImagePass. (#5692)
+  * Remove calls to GetId in liveness analysis (#5693)
+
+  [ alan-baker ]
+  * OpSampledImage extra validation (#5695)
+
+  [ Steven Perron ]
+  * Fix comments in liveness.h (#5699)
+
+  [ Nathan Gauër ]
+  * spirv-val, core: add support for OpExtInstWithForwardRefs (#5698)
+
+  [ Steven Perron ]
+  * Add assert header to val/decoration.h (#5703)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 2 updates (#5702)
+
+  [ alan-baker ]
+  * update tests for disassembly changes (#5694)
+
+  [ Nathan Gauër ]
+  * Add KHR suffix to OpExtInstWithForwardRef opcode. (#5704)
+
+  [ Shahbaz Youssefi ]
+  * spirv-dis: add decorations to comments (#5675)
+
+  [ Nathan Gauër ]
+  * opt: fix Subgroup* trimming (#5706)
+  * opt: add OpExtInst forward ref fixup pass (#5708)
+
+  [ Shahbaz Youssefi ]
+  * spirv-dis: Add --nested-indent and --reorder-blocks (#5671)
+
+  [ Nathan Gauër ]
+  * misc: remove encoding parameter (#5710)
+
+  [ github-actions[bot] ]
+  * roll deps (#5685)
+
+  [ Cassandra Beckley ]
+  * Use bzlmod for effcee (#5707)
+
+  [ Steven Perron ]
+  * [OPT] Zero-extend unsigned 16-bit integers when bitcasting (#5714)
+  * Prepare release v2024.3 (#5719)
+
+ -- john <john@odin>  Tue, 16 Jul 2024 10:59:28 -0600
+
 spirv-tools (2023.6+1.3.283.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Spencer Fricke ]
