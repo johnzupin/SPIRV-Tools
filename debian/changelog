@@ -1,3 +1,182 @@
+spirv-tools (2024.4+1.3.296.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Natalie Chouinard ]
+  * Add re2 dep back to Bazel build (#5721)
+
+  [ Nathan Gauër ]
+  * [NFC] Fix potential buffer overflow (#5715)
+
+  [ Steven Perron ]
+  * Add knowledge of cooperative matrices (#5720)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 1315c900e..b4e4b6259 (1 commit) (#5716)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 16452e141..a7c5f985f (5 commits) (#5722)
+
+  [ Victor Lomuller ]
+  * Add FPEncoding operand type. (#5726)
+
+  [ David Neto ]
+  * Allow for empty list of enums for an operand (#5727)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 1278ee9bd..0d9c2fc76 (2 commits) (#5724)
+  * kokoro: use Python 3.12 in Linux builds (#5730)
+
+  [ Sven van Haastregt ]
+  * Fix SPRIV -> SPIRV typos (#5735)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 4 updates (#5734)
+
+  [ LU-JOHN ]
+  * Allow fmt arg to printf to be an array of i8 in non-constant space (#5677)
+
+  [ Steven Perron ]
+  * Handle coop matrix in fix storage class (#5729)
+
+  [ alan-baker ]
+  * Support SPV_KHR_untyped_pointers (#5736)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 074a32af6..af4c589ed (1 commit) (#5731)
+
+  [ Nathan Gauër ]
+  * opt: split composite from array flattening (#5733)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ eb8522077..3cb498899 (4 commits) (#5741)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5744)
+
+  [ Ben Ashbaugh ]
+  * properly handle the load and store cache control operand types (#5664)
+
+  [ Steven Perron ]
+  * [opt] Fix pointer stores in DCE (#5739)
+
+  [ Karol Herbst ]
+  * spirv-link: allow linking functions with different pointer arguments (#5534)
+
+  [ Steven Perron ]
+  * [opt] Fix uses of type manager in fix storage class (#5740)
+
+  [ github-actions[bot] ]
+  * Roll external/googletest/ 9ff2450a5..cee1ba1f2 (1 commit) (#5743)
+
+  [ alan-baker ]
+  * Allow ArrayStride on untyped pointers (#5746)
+
+  [ dependabot[bot] ]
+  * build(deps): bump braces from 3.0.2 to 3.0.3 in /tools/sva (#5737)
+
+  [ github-actions[bot] ]
+  * roll deps (#5748)
+
+  [ Steven Perron ]
+  * [OPT] Avoid assert in generatecopy (#5756)
+  * Use "docker compose" in wasm build (#5764)
+  * Add OpTypeRuntimeArray to composite types (#5765)
+
+  [ Markus Tavenrath ]
+  * Workaround issue in MSVC arm64 compiler returning random upper 32-bits in function spvtools::util::CountSetBits. (#5763)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 4 updates (#5761)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action (#5769)
+
+  [ Kaylee Lubick ]
+  * Remove local attribute from build_version_inc genrule (#5766)
+
+  [ Steven Perron ]
+  * [OPT] Add SPV_KHR_ray_tracing_position_fetch to allow lists (#5757)
+
+  [ github-actions[bot] ]
+  * roll deps (#5754)
+
+  [ github-actions[bot] ]
+  * roll deps (#5771)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5772)
+
+  [ Kévin Petit ]
+  * Validate presence of Stride operand to OpCooperativeMatrix{Load,Store}KHR (#5777)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 3 updates (#5780)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ fd7713cb9..fd58e18f2 (2 commits) (#5773)
+
+  [ alan-baker ]
+  * Revert "OpSampledImage extra validation (#5695)" (#5785)
+
+  [ Yoann Congal ]
+  * update_build_version.py: support an envvar to force the description (#5758)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ e64dd622d..f7f316824 (2 commits) (#5782)
+
+  [ Laura Hermanns ]
+  * [opt] Add struct-packing pass and unit test. (#5778)
+
+  [ Viktoria Maximova ]
+  * [SPV_KHR_untyped_pointers] Fix verification of vload/vstore OpenCL.std instructions (#5788)
+
+  [ Nathan Gauër ]
+  * spirv-opt: make traversal deterministic (#5790)
+
+  [ alan-baker ]
+  * Update sampled image validation (#5789)
+
+  [ Steven Perron ]
+  * Fix build.gn build. (#5791)
+
+  [ alan-baker ]
+  * Update SPIRV-Headers (#5793)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ f7f316824..67d126083 (3 commits) (#5787)
+  * Do not check structurally unreachable continue target predecessors (#5800)
+
+  [ cheneym2 ]
+  * spirv-opt: fix crash in function declarations (#5796)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 67d126083..1d4466e8d (2 commits) (#5801)
+
+  [ David Neto ]
+  * Implement to_string(uint32_t) without using the locale (#5805)
+
+  [ Nielsbishere ]
+  * Made libspirv include relative to allow better portability (#5807)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 1d4466e8d..f7c22f52a (3 commits) (#5806)
+
+  [ Steven Perron ]
+  * [OPT] Fix generating debugLocalVariable from debugGlobalVariable (#5803)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5808)
+
+  [ Ben Ashbaugh ]
+  * add support for SPV_INTEL_global_variable_host_access (#5786)
+
+  [ github-actions[bot] ]
+  * roll deps (#5809)
+
+  [ Cassandra Beckley ]
+  * Prepare release v2024.4 (#5811)
+
+ -- john <john@odin>  Tue, 01 Oct 2024 08:49:43 -0600
+
 spirv-tools (2024.3+1.3.290.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Spencer Fricke ]
