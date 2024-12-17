@@ -16,7 +16,8 @@ Files: utils/git-sync-deps
 Copyright: 2014, Google Inc
 License: BSD-3-clause
 
-Files: .gn
+Files: .github/dependabot.yml
+       .gn
        BUILD.gn
        CMakeLists.txt
        LICENSE
@@ -43,11 +44,9 @@ Files: .gn
        kokoro/ndk-build/*
        kokoro/scripts/*
        kokoro/shaderc-smoketest/*
-       kokoro/windows-msvc-2013-release/*
-       kokoro/windows-msvc-2015-release-bazel/*
-       kokoro/windows-msvc-2015-release/*
-       kokoro/windows-msvc-2017-debug/*
        kokoro/windows-msvc-2017-release/*
+       kokoro/windows-msvc-2019-debug/*
+       kokoro/windows-msvc-2019-release/*
        source/CMakeLists.txt
        source/assembly_grammar.cpp
        source/assembly_grammar.h
@@ -111,6 +110,8 @@ Files: .gn
        source/text.h
        source/text_handler.cpp
        source/text_handler.h
+       source/to_string.cpp
+       source/to_string.h
        source/util/*
        source/val/*
        source/wasm/build.sh
@@ -153,6 +154,7 @@ Files: .gn
        test/diff/diff_files/large_functions_small_diffs_autogen.cpp
        test/diff/diff_files/multiple_different_entry_points_autogen.cpp
        test/diff/diff_files/multiple_same_entry_points_autogen.cpp
+       test/diff/diff_files/ray_query_types_autogen.cpp
        test/diff/diff_files/reordered_if_blocks_autogen.cpp
        test/diff/diff_files/reordered_switch_blocks_autogen.cpp
        test/diff/diff_files/small_functions_small_diffs_autogen.cpp
@@ -190,11 +192,11 @@ Files: .gn
        test/fuzzers/spvtools_val_fuzzer.cpp
        test/generator_magic_number_test.cpp
        test/hex_float_test.cpp
+       test/hex_to_text_test.cpp
        test/immediate_int_test.cpp
        test/libspirv_macros_test.cpp
        test/link/*
        test/lint/*
-       test/log_test.cpp
        test/name_mapper_test.cpp
        test/named_id_test.cpp
        test/opcode_make_test.cpp
@@ -241,6 +243,7 @@ Files: .gn
        test/text_to_binary_test.cpp
        test/text_word_get_test.cpp
        test/timer_test.cpp
+       test/to_string_test.cpp
        test/tools/*
        test/unit_spirv.cpp
        test/unit_spirv.h
@@ -254,10 +257,12 @@ Files: .gn
        tools/dis/*
        tools/emacs/*
        tools/fuzz/*
+       tools/io.cpp
        tools/io.h
        tools/lesspipe/*
        tools/link/*
        tools/lint/*
+       tools/objdump/*
        tools/opt/*
        tools/reduce/*
        tools/sva/bin/*
@@ -277,6 +282,7 @@ Files: .gn
        utils/check_copyright.py
        utils/check_symbol_exports.py
        utils/fixup_fuzz_result.py
+       utils/generate_changelog.py
        utils/generate_grammar_tables.py
        utils/generate_language_headers.py
        utils/generate_registry_tables.py
@@ -291,17 +297,19 @@ Copyright: 2020-2022, Advanced Micro Devices, Inc
            2021, Alastair F. Donaldson
            2020, André Perez Maselco
            2021, Arm Ltd
+           2024, Epic Games, Inc
            For conditional branches, |visit_fn| may decide which edge to take out
-           2015-2021, Google Inc
-           2017-2022, Google LLC
-           2016-2022, LunarG Inc
+           2015-2024, Google Inc
+           2017-2024, Google LLC
+           2016-2023, LunarG Inc
            2021, Mostafa Ashraf
-           2019, NVIDIA Corporation
+           2019-2024, NVIDIA Corporation
+           2023, Nintendo
            2017-2018, Pierre Moreau
            2019, Samsung Inc
            2021, Shiyu Liu
            2020, Stefano Milizia
-           2015-2022, The Khronos Group Inc
+           2015-2024, The Khronos Group Inc
            2017-2022, Valve Corporation
            2020, Vasyl Teliman
            2021, ZHOU He
@@ -320,7 +328,7 @@ Comment: No explicit license found, using license(s) from:
  utils/vscode/src/lsp/LICENSE
 
 Files: debian/*
-Copyright: 2023, LunarG Inc <johnz@lunarg.com>
+Copyright: 2024, LunarG Inc <johnz@lunarg.com>
 License: BSD-3-clause or GPL-3 or MIT
 
 License: Apache-2
