@@ -1,3 +1,158 @@
+spirv-tools (2024.4+1.4.304.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ Viktoria Maximova ]
+  * [SPV_KHR_untyped_pointers] Fix verification for OpenCL.std instructions (#5810)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Disallow stores according to VUID 06924 (#5368)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 0df567400..c0b9bd08e (3 commits) (#5812)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5813)
+
+  [ alan-baker ]
+  * Allow more levels of arrays with component decoration (#5820)
+
+  [ JN Mo ]
+  * Add support for SPV_KHR_compute_shader_derivative (#5817)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ c0b9bd08e..ba5fd0979 (2 commits) (#5818)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 2 updates (#5825)
+
+  [ dependabot[bot] ]
+  * build(deps-dev): bump rollup from 3.23.0 to 3.29.5 in /tools/sva (#5826)
+
+  [ Steven Perron ]
+  * Do not distrubute OpSNegate into OpUDiv (#5823)
+
+  [ Cassandra Beckley ]
+  * opt: Mark InterpolateAt* argument as live for DCE (#5824)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ ba5fd0979..482ca0b9d (1 commit) (#5828)
+  * opt: Update copy prop arrays to handle InterpolateAt* instructions (#5827)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 482ca0b9d..c6b27359c (1 commit) (#5829)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5831)
+  * opt: Add support for OpExtInst to capability trim pass (#5836)
+
+  [ github-actions[bot] ]
+  * roll deps (#5833)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 3 updates (#5841)
+
+  [ alan-baker ]
+  * Handle aliases field in the grammar (#5799)
+  * Fix result type check in ValidateImageTexelPointer (#5848)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 03b8d6ea3..8634e35f1 (1 commit) (#5844)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 5 updates (#5847)
+
+  [ Cassandra Beckley ]
+  * opt: Fix array copy propagation of access chain pointers (#5853)
+
+  [ alan-baker ]
+  * Fix switch case construct validation (#5852)
+
+  [ Spencer Fricke ]
+  * ci: Update MacOS to latest OS (#5855)
+
+  [ Jeremy Gebben ]
+  * opt: Remove InstDebugPrintfPass (#5856)
+
+  [ Nathan Gauër ]
+  * opt: add KHR_fragment_shading_rate to allowlist (#5859)
+  * opt: add StorageImageWriteWithoutFormat to trimm pass (#5860)
+
+  [ Jeff Bolz ]
+  * Add validation for SPV_NV_tensor_addressing and SPV_NV_cooperative_matrix2 (#5865)
+
+  [ Shahbaz Youssefi ]
+  * tools: Move io utils to cpp (#5869)
+
+  [ dan sinclair ]
+  * Update proto JSON options call. (#5867)
+
+  [ github-actions[bot] ]
+  * roll deps (#5850)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 3 updates (#5866)
+
+  [ Shahbaz Youssefi ]
+  * tools: Accept hex representation as binary input (#5870)
+
+  [ github-actions[bot] ]
+  * roll deps (#5871)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Report VUID 08973 only in Vulkan environments (#5873)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ a3027054a..27a0c7308 (7 commits) (#5875)
+
+  [ Spencer Fricke ]
+  * ci: Make MacOS builds only run if other things pass (#5872)
+
+  [ Steven Perron ]
+  * Avoid maintaining a list of all operating systems by hand. (#5881)
+
+  [ Qiaojin.Bao ]
+  * Correct a spelling error 'diagnostic' (#5878)
+
+  [ Nathan Gauër ]
+  * [NFC] Apply small clang-tidy fixes (#5709)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Accept valid OpSizeOf instructions (#5879)
+
+  [ github-actions[bot] ]
+  * roll deps (#5883)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 2 updates (#5885)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 8f739d18b..917bfee46 (2 commits) (#5887)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add missing NonSemantic.Shader.DebugInfo.100 (#5846)
+
+  [ David Neto ]
+  * spirv-as: Assume target from spvasm text (#5893)
+
+  [ sushraja-msft ]
+  * Update path-to-regexp to address CVE-2024-45296 (#5895)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 917bfee46..b67caffec (3 commits) (#5889)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5891)
+
+  [ David Neto ]
+  * Vulkan 1.4 support (#5899)
+
+  [ Cassandra Beckley ]
+  * Prepare release (#5905)
+
+  [ John Zupin ]
+  * packaging: debian: update copyright
+
+ -- john <john@odin>  Mon, 06 Jan 2025 13:52:34 -0700
+
 spirv-tools (2024.4+1.3.296.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Natalie Chouinard ]
