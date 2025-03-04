@@ -1,3 +1,196 @@
+spirv-tools (2024.4+1.4.309.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ David Neto ]
+  * assembler: ensure progress when seeking the version string (#5910)
+
+  [ alan-baker ]
+  * Relax DebugLine validation (#5916)
+
+  [ David Neto ]
+  * kokoro: Use cmake-3.31.2 on linux and windows (#5918)
+
+  [ Takuto Ikuta ]
+  * build: Add missing include headers (#5915)
+
+  [ Steve Urquhart ]
+  * opt: keep all OpSource instructions (#5901)
+
+  [ David Neto ]
+  * kokoro: windows: use Python 3.12 (#5920)
+
+  [ Ellie Hermaszewska ]
+  * Add OpImageSampleFootprintNV to IsAllowedSampledImageOperand (#5914)
+
+  [ David Neto ]
+  * update cmake_minimum_required to 3.22.1 (#5925)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ c7cf999bd..67576965a (3 commits) (#5900)
+
+  [ Spencer Fricke ]
+  * spirv-val: Validate zero product workgroup size (#5407)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 688dd51cc..4e0956109 (11 commits) (#5926)
+
+  [ Ashley Coleman ]
+  * lsp: Make vim support more explicit, add code completions (#5917)
+
+  [ David Neto ]
+  * Update effcee (#5927)
+  * Update downloads badges and matrix (#5931)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 4e0956109..65b7da13b (2 commits) (#5929)
+  * kokoro: Add VS 2022 scripts, remove VS 2017 scripts (#5930)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 4 updates (#5932)
+  * Update download links to VS 2022 (#5933)
+  * kokoro: remove VS 2019 debug (#5934)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ f489ceb63..3f770c4d9 (4 commits) (#5935)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 2 updates (#5936)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 3f770c4d9..6effb000c (6 commits) (#5937)
+
+  [ Spencer Fricke ]
+  * spirv-val: Remove OpenCL ivec3 req (#5940)
+
+  [ Pankaj Mistry ]
+  * Add EXT_mesh_shader validation support (#5640)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 6effb000c..a1de53ddd (4 commits) (#5942)
+
+  [ David Tobolik ]
+  * fix: handle LinkOnceODR correctly (#5938)
+
+  [ Steven Perron ]
+  * [OPT] Add SPV_KHR_ray_tracing to allow list (#5941)
+
+  [ github-actions[bot] ]
+  * roll deps (#5943)
+
+  [ Takuto Ikuta ]
+  * Add missing include headers (#5944)
+
+  [ Ben Ashbaugh ]
+  * add support for SPV_INTEL_subgroup_matrix_multiply_accumulate (#5928)
+
+  [ David Neto ]
+  * dd missing Vulkan 1.4 in validator help, env testing (#5946)
+
+  [ github-actions[bot] ]
+  * roll deps (#5949)
+
+  [ Maciej Jesionowski ]
+  * Add SPV_AMDX_shader_enqueue version 2 support (#5838)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ a4e771912..a28c4b582 (7 commits) (#5952)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add VK_KHR_maintenance8 support (#5951)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5956)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ a28c4b582..fd8b35b9a (6 commits) (#5955)
+
+  [ alan-baker ]
+  * More explicit layout validation (#5958)
+
+  [ Spencer Fricke ]
+  * spirv-val: Update mislabeled VUIDs (#5964)
+
+  [ David Neto ]
+  * kokoro: use gcc 13 instead of gcc 9 (#5961)
+  * kokoro: use clang 13.0.1 on Linux (#5962)
+  * kokoro: use ndk-r27c (#5969)
+
+  [ alan-baker ]
+  * Fix layout checks with untyped pointers (#5970)
+
+  [ Jeff Bolz ]
+  * Validate SPV_NV_cooperative_vector (#5972)
+
+  [ alan-baker ]
+  * Update physical storage buffer validation to match SPIR-V 1.6.5 (#5977)
+  * Improve the instruction diagnostic for some access chain errors (#5978)
+
+  [ alelenv ]
+  * Add validation SPV_NV_cluster_acceleration_structure. (#5974)
+  * Add validation for SPV_NV_linear_swept_spheres. (#5975)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ fd8b35b9a..5f8d605c0 (1 commit) (#5957)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 2 updates (#5976)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 7253ff8f9..69b58f922 (4 commits) (#5983)
+
+  [ Nathan Gauër ]
+  * spirv-val: fix env parsing for vk1.1spv1.4 (#5985)
+
+  [ github-actions[bot] ]
+  * roll deps (#5987)
+
+  [ Karol Herbst ]
+  * linker: remove LinkOnceODR decorations when linking executables (#5979)
+
+  [ Spencer Fricke ]
+  * spirv-val: Update VUIDs for 308 header (#5990)
+
+  [ Takuto Ikuta ]
+  * Add missing include headers (#5995)
+
+  [ Shahbaz Youssefi ]
+  * diff: Fix crash in OpString matching (#5988)
+
+  [ github-actions[bot] ]
+  * roll deps (#5992)
+
+  [ github-actions[bot] ]
+  * roll deps (#5996)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#5994)
+
+  [ github-actions[bot] ]
+  * roll deps (#5997)
+
+  [ David Neto ]
+  * kokoro: Streamline check-format (#5973)
+
+  [ alan-baker ]
+  * Fix untyped pointer comparison validation (#6004)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add AllowVulkan32BitBitwise option (#6001)
+
+  [ David Neto ]
+  * [opt] Fix bug opt::InstructionBuilder::AddVariable (#6007)
+  * kokoro: linux: use cpp-builder instead of radial-build (#6008)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 4 updates (#6010)
+
+  [ Nathan Gauër ]
+  * Prepare release v2025.1 (#6011)
+
+  [ Steven Perron ]
+  * [OPT] Update DebugDeclare if the var is not an OpVariable (#6014)
+
+ -- john <john@odin>  Tue, 04 Mar 2025 08:47:25 -0700
+
 spirv-tools (2024.4+1.4.304.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ Viktoria Maximova ]
