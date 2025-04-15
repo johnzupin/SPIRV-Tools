@@ -1,3 +1,151 @@
+spirv-tools (2024.4+1.4.312.0~rc1-1lunarg24.04-1) noble; urgency=medium
+
+  [ alan-baker ]
+  * Add validation for invalid layout decoration usage (#6012)
+
+  [ dependabot[bot] ]
+  * build(deps): bump lukka/get-cmake in the github-actions group (#6015)
+
+  [ dependabot[bot] ]
+  * build(deps): bump actions/cache in the github-actions group (#6018)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ f004e6c0a..cc70e832b (1 commit) (#5999)
+  * Fix invalid layout validation version check (#6023)
+
+  [ github-actions[bot] ]
+  * roll deps (#6022)
+
+  [ Nathan Gauër ]
+  * [opt] Add StorageBuffer16BitAccess to trim pass. (#6026)
+
+  [ Cassandra Beckley ]
+  * spirv-as: Add OpUnknown pseudo-instruction (#6024)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ f1b7d000b..735c86164 (3 commits) (#6025)
+
+  [ github-actions[bot] ]
+  * roll deps (#6030)
+
+  [ наб ]
+  * folding_rules: generalise RedundantIAdd() to |^>><<+- with 0 on RHS and |^+ with 0 on LHS (#6013)
+
+  [ Spencer Fricke ]
+  * spirv-val: Add Vulkan Aligned PowerOfTwo check (#6027)
+  * spirv-val: Validate PhysicalStorageBuffer Stage Interface (#6000)
+
+  [ Daniel Story ]
+  * Support scalar replacement of large structs (#6019)
+  * Support optimization of OpCopyLogical (#6016)
+
+  [ наб ]
+  * Fold 0 <<,>>,/,% n to 0. Fold a / 1 to a. Fold a % 1 to 0. Fold f % 1.0 to 0.0. Fold 0.0 % f to 0.0 (#6020)
+
+  [ Yong He ]
+  * Fix explicit layout validation on ptr type (#6029)
+
+  [ Jim Blandy ]
+  * spirv-diff: Try to pair functions by their complete type. (#6021)
+
+  [ David Neto ]
+  * github workflow bazel: print error logs (#6036)
+  * opt: add pass to split combined image samplers (#6035)
+
+  [ alan-baker ]
+  * Update location/component conflict validation (#5993)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 35211d98d..bdbaf376e (3 commits) (#6031)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#6033)
+
+  [ David Neto ]
+  * split-combined-image-sampler: synthesize names (#6037)
+  * test fixture: print optimized assembly that fails to validate (#6043)
+  * opt: add resolve-binding-conflicts pass (#6044)
+  * split-combined-image-samplers: clone decorations on loads (#6046)
+
+  [ alan-baker ]
+  * Check that layouts match runtime array requirement (#6048)
+
+  [ github-actions[bot] ]
+  * roll deps (#6049)
+
+  [ natgavrilenko ]
+  * Validation for relaxed control barrier with storage class semantics (#5984)
+
+  [ github-actions[bot] ]
+  * roll deps (#6055)
+
+  [ Antonio Maiorano ]
+  * Fix implicit conversion warning: int32_t to uint32_t (#6052)
+
+  [ David Neto ]
+  * format check should say what version of clang-format is used (#6058)
+  * opt: value numbering: preserve loads of image, sampler, sampled image (#6059)
+
+  [ alan-baker ]
+  * Fix calculation of locations for matrices (#6062)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group with 3 updates (#6056)
+
+  [ github-actions[bot] ]
+  * roll deps (#6060)
+  * Validate version requirement for Vulkan Memory Model (#6042)
+
+  [ dependabot[bot] ]
+  * build(deps): bump github/codeql-action in the github-actions group (#6066)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 3b1bb7337..fd39cfa46 (1 commit) (#6065)
+
+  [ Steven Perron ]
+  * [OPT] Delete decoration for OpPhi when unrolling (#6064)
+
+  [ Cassandra Beckley ]
+  * opt: Add QuadControlKHR to trim pass and allow lists (#6068)
+
+  [ Nathan Gauër ]
+  * [OPT] fix loop with recursive types in trim pass (#6070)
+
+  [ github-actions[bot] ]
+  * roll deps (#6069)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ b12a6f75f..bcf4bf315 (3 commits) (#6072)
+
+  [ Steven Perron ]
+  * [OPT] Add extension to allow list (#6075)
+
+  [ VISHAKH PRAKASH ]
+  * Add support for pointer types in vector when using extension SPV_INTEL_masked_gather_scatter (#6041)
+
+  [ Steven Perron ]
+  * [OPT] In copy propagate arrays, debug instructions are not stores. (#6078)
+
+  [ Spencer Fricke ]
+  * spirv-val: Label new VUID from 312 headers (#6079)
+
+  [ Sven van Haastregt ]
+  * spirv-val: Restrict VUID 09557 to Vulkan environments (#6080)
+
+  [ github-actions[bot] ]
+  * roll deps (#6076)
+
+  [ dependabot[bot] ]
+  * build(deps): bump the github-actions group across 1 directory with 2 updates (#6083)
+
+  [ amd-dwang ]
+  * Add SPV_KHR_bfloat16 support (#6057)
+
+  [ alan-baker ]
+  * Minimal opt support for SPV_KHR_untyped_pointers (#6087)
+
+ -- john <john@odin>  Tue, 15 Apr 2025 14:30:34 -0600
+
 spirv-tools (2024.4+1.4.309.0~rc1-1lunarg24.04-1) noble; urgency=medium
 
   [ David Neto ]
