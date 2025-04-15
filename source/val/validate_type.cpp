@@ -115,6 +115,15 @@ spv_result_t ValidateTypeFloat(ValidationState_t& _, const Instruction* inst) {
   if (num_bits == 32) {
     return SPV_SUCCESS;
   }
+  auto operands = inst->words();
+  if (operands.size() > 3) {
+    if (operands[3] != 0) {
+      return _.diag(SPV_ERROR_INVALID_DATA, inst)
+             << "Current FPEncoding only supports BFloat16KHR.";
+    }
+    return SPV_SUCCESS;
+  }
+
   if (num_bits == 16) {
     if (_.features().declare_float16_type) {
       return SPV_SUCCESS;
@@ -140,7 +149,24 @@ spv_result_t ValidateTypeVector(ValidationState_t& _, const Instruction* inst) {
   const auto component_index = 1;
   const auto component_id = inst->GetOperandAs<uint32_t>(component_index);
   const auto component_type = _.FindDef(component_id);
-  if (!component_type || !spvOpcodeIsScalarType(component_type->opcode())) {
+  if (component_type) {
+    bool isPointer = component_type->opcode() == spv::Op::OpTypePointer;
+    bool isScalar = spvOpcodeIsScalarType(component_type->opcode());
+
+    if (_.HasCapability(spv::Capability::MaskedGatherScatterINTEL) &&
+        !isPointer && !isScalar) {
+      return _.diag(SPV_ERROR_INVALID_ID, inst)
+             << "Invalid OpTypeVector Component Type<id> "
+             << _.getIdName(component_id)
+             << ": Expected a scalar or pointer type when using the "
+                "SPV_INTEL_masked_gather_scatter extension.";
+    } else if (!_.HasCapability(spv::Capability::MaskedGatherScatterINTEL) &&
+               !isScalar) {
+      return _.diag(SPV_ERROR_INVALID_ID, inst)
+             << "OpTypeVector Component Type <id> " << _.getIdName(component_id)
+             << " is not a scalar type.";
+    }
+  } else {
     return _.diag(SPV_ERROR_INVALID_ID, inst)
            << "OpTypeVector Component Type <id> " << _.getIdName(component_id)
            << " is not a scalar type.";
@@ -624,6 +650,15 @@ spv_result_t ValidateTypeCooperativeMatrix(ValidationState_t& _,
            << "OpTypeCooperativeMatrix Component Type <id> "
            << _.getIdName(component_type_id)
            << " is not a scalar numerical type.";
+  }
+
+  if (_.IsBfloat16ScalarType(component_type_id)) {
+    if (!_.HasCapability(spv::Capability::BFloat16CooperativeMatrixKHR)) {
+      return _.diag(SPV_ERROR_INVALID_ID, inst)
+             << "OpTypeCooperativeMatrix Component Type <id> "
+             << _.getIdName(component_type_id)
+             << "require BFloat16CooperativeMatrixKHR be declared.";
+    }
   }
 
   const auto scope_index = 2;
