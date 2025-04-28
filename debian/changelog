@@ -1,3 +1,37 @@
+spirv-tools (2024.4+1.4.313.0~rc1-1lunarg22.04-1) jammy; urgency=medium
+
+  [ David Neto ]
+  * format check: Show the list of files to be checked (#6088)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ c8d5854f0..12f4be680 (7 commits) (#6086)
+
+  [ alan-baker ]
+  * Add Vulkan 1.3 and 1.4 capability checks (#6063)
+
+  [ dependabot[bot] ]
+  * build(deps): bump lukka/get-cmake in the github-actions group (#6089)
+
+  [ Jan Kelemen ]
+  * Initialize variables (#6093)
+
+  [ Kévin Petit ]
+  * Fix validation of BFloat16 FP types (#6092)
+
+  [ github-actions[bot] ]
+  * Roll external/abseil_cpp/ 8b81b77c5..daa0bfb56 (4 commits) (#6091)
+
+  [ Steven Perron ]
+  * Prepare for 2025.2 release. (#6098)
+
+  [ David Neto ]
+  * generate_grammar_tables.py: remove unused option to emit C enums (#6094)
+
+  [ Steven Perron ]
+  * [OPT] Don't fold n % 1.0 (#6100)
+
+ -- john <john@odin>  Mon, 28 Apr 2025 16:03:56 -0600
+
 spirv-tools (2024.4+1.4.312.0~rc1-1lunarg22.04-1) jammy; urgency=medium
 
   [ alan-baker ]
